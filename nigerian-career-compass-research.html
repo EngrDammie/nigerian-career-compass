@@ -1,0 +1,2071 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Nigerian Career Compass — Research & Strategy Document</title>
+<meta name="description" content="Comprehensive research and strategy document for The Nigerian Career Compass: a data-driven career guidance platform for Nigerian secondary school leavers." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/docs.css" />
+<link rel="icon" href="/icon.svg" type="image/svg+xml" />
+<style>
+  /* ---- Document-specific components ---- */
+  .phase-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+    padding: 4px 10px; border-radius: 999px;
+    background: color-mix(in srgb, var(--cyan) 12%, transparent);
+    border: 1.5px solid color-mix(in srgb, var(--cyan) 32%, transparent); color: var(--cyan-ink);
+  }
+  .phase-badge.phase-1 { background: color-mix(in srgb, var(--emerald) 12%, transparent); border-color: color-mix(in srgb, var(--emerald) 32%, transparent); color: var(--emerald-ink); }
+  .phase-badge.phase-2 { background: color-mix(in srgb, var(--amber) 12%, transparent); border-color: color-mix(in srgb, var(--amber) 34%, transparent); color: var(--amber-ink); }
+  .phase-badge.phase-3 { background: color-mix(in srgb, var(--rose) 12%, transparent); border-color: color-mix(in srgb, var(--rose) 32%, transparent); color: var(--rose-ink); }
+  .metric-card {
+    border: 1.5px solid var(--border); border-radius: 14px; padding: 20px 22px; background: var(--bg-2);
+    text-align: center; transition: transform .15s ease, border-color .15s ease;
+  }
+  .metric-card:hover { transform: translateY(-2px); border-color: var(--emerald); }
+  .metric-value { font-size: 32px; font-weight: 800; letter-spacing: -.02em; color: var(--text); line-height: 1.1; }
+  .metric-label { font-size: 13px; color: var(--text-3); margin-top: 6px; font-weight: 600; text-transform: uppercase; letter-spacing: .05em; }
+  .metric-sub { font-size: 12px; color: var(--emerald-ink); margin-top: 4px; font-weight: 600; }
+  .source-ref { font-size: 11.5px; color: var(--text-3); font-family: 'Geist Mono', monospace; }
+  .decision-box { border: 1.5px solid var(--border); border-radius: 13px; padding: 18px 20px; background: var(--bg-2); margin: 16px 0; }
+  .decision-box .db-title { font-size: 13px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; color: var(--emerald-ink); margin-bottom: 8px; }
+  .decision-box .db-body { font-size: 14px; color: var(--text-2); line-height: 1.65; }
+  .risk-item { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--border); }
+  .risk-item:last-child { border-bottom: none; }
+  .risk-badge { flex-shrink: 0; width: 28px; height: 28px; border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; color: #020617; background: var(--grad); }
+  .risk-text { flex: 1; padding-top: 2px; }
+  .risk-text strong { color: var(--text); }
+  .timeline-row { display: flex; gap: 16px; margin-bottom: 20px; align-items: flex-start; }
+  .timeline-dot { flex-shrink: 0; width: 14px; height: 14px; border-radius: 50%; background: var(--grad); margin-top: 4px; box-shadow: 0 0 12px var(--emerald); }
+  .timeline-content { flex: 1; }
+  .timeline-label { font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--emerald-ink); margin-bottom: 4px; }
+  .timeline-title { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+  .timeline-desc { font-size: 13.5px; color: var(--text-2); }
+  .course-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; margin: 20px 0; }
+  .course-card { border: 1.5px solid var(--border); border-radius: 13px; padding: 18px 20px; background: var(--bg-2); transition: all .15s ease; }
+  .course-card:hover { border-color: var(--emerald); transform: translateY(-2px); }
+  .course-card .cc-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 8px; flex-wrap: wrap; }
+  .course-card .cc-title { font-size: 15px; font-weight: 700; color: var(--text); }
+  .course-card .cc-track { font-size: 10.5px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; padding: 3px 8px; border-radius: 6px; }
+  .course-card .track-science { background: color-mix(in srgb, var(--cyan) 18%, transparent); color: var(--cyan-ink); border: 1px solid color-mix(in srgb, var(--cyan) 35%, transparent); }
+  .course-card .track-commercial { background: color-mix(in srgb, var(--amber) 18%, transparent); color: var(--amber-ink); border: 1px solid color-mix(in srgb, var(--amber) 35%, transparent); }
+  .course-card .track-arts { background: color-mix(in srgb, var(--rose) 18%, transparent); color: var(--rose-ink); border: 1px solid color-mix(in srgb, var(--rose) 35%, transparent); }
+  .course-card .cc-reqs { font-size: 12.5px; color: var(--text-2); line-height: 1.6; }
+  .course-card .cc-reqs code { background: var(--bg-3); color: var(--cyan-ink); padding: 1.5px 6px; border-radius: 4px; font-size: 0.85em; }
+  .competitor-card { border: 1.5px solid var(--border); border-radius: 13px; padding: 20px; background: var(--bg-2); margin-bottom: 14px; }
+  .competitor-card .comp-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 10px; flex-wrap: wrap; }
+  .competitor-card .comp-name { font-size: 17px; font-weight: 800; color: var(--text); }
+  .competitor-card .comp-type { font-size: 10.5px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; padding: 3px 8px; border-radius: 6px; background: color-mix(in srgb, var(--emerald) 12%, transparent); color: var(--emerald-ink); border: 1px solid color-mix(in srgb, var(--emerald) 32%, transparent); }
+  .competitor-card .comp-desc { font-size: 13.5px; color: var(--text-2); margin-bottom: 10px; }
+  .competitor-card .comp-features { display: flex; flex-wrap: wrap; gap: 7px; }
+  .competitor-card .comp-features span { font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 999px; background: var(--bg-3); border: 1px solid var(--border); color: var(--text-3); }
+  .gap-tag { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 6px; background: color-mix(in srgb, var(--rose) 18%, transparent); color: var(--rose-ink); border: 1px solid color-mix(in srgb, var(--rose) 35%, transparent); margin: 3px; }
+  .gap-tag.good { background: color-mix(in srgb, var(--emerald) 18%, transparent); color: var(--emerald-ink); border-color: color-mix(in srgb, var(--emerald) 35%, transparent); }
+  .formula-box { font-family: 'Geist Mono', monospace; font-size: 13px; background: var(--bg-3); border: 1.5px solid var(--border); border-radius: 11px; padding: 16px 18px; overflow-x: auto; margin: 16px 0; color: var(--text-2); }
+  .formula-box .fn { color: var(--syn-key); }
+  .formula-box .fs { color: var(--syn-str); }
+  .formula-box .fc { color: var(--text-3); font-style: italic; }
+  .toc-part { font-size: 10px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; color: var(--cyan-ink); margin: 15px 0 5px 12px; }
+  .toc-part:first-of-type { margin-top: 0; }
+  .st { font-size: 10.5px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; padding: 3px 9px; border-radius: 99px; display: inline-block; white-space: nowrap; }
+  .st.ok { background: color-mix(in srgb, var(--emerald) 18%, transparent); color: var(--emerald-ink); }
+  .st.no { background: color-mix(in srgb, var(--rose) 18%, transparent); color: var(--rose-ink); }
+  .st.warn { background: color-mix(in srgb, var(--amber) 20%, transparent); color: var(--amber-ink); }
+  .st.info { background: color-mix(in srgb, var(--cyan) 18%, transparent); color: var(--cyan-ink); }
+  .find { border: 2px solid color-mix(in srgb, var(--rose) 42%, transparent); border-radius: 14px; padding: 20px 22px; background: color-mix(in srgb, var(--rose) 7%, transparent); margin: 22px 0; }
+  .find .ft { font-size: 15px; font-weight: 800; color: var(--rose-ink); margin-bottom: 10px; display: flex; align-items: center; gap: 9px; }
+  .good { border: 2px solid color-mix(in srgb, var(--emerald) 42%, transparent); border-radius: 14px; padding: 20px 22px; background: color-mix(in srgb, var(--emerald) 7%, transparent); margin: 22px 0; }
+  .good .gt { font-size: 15px; font-weight: 800; color: var(--emerald-ink); margin-bottom: 10px; display: flex; align-items: center; gap: 9px; }
+  .q { border: 1.5px solid var(--border); border-radius: 11px; background: var(--bg-2); padding: 14px 17px; font-size: 14px; color: var(--text-2); }
+  .q b { color: var(--text); }
+  ol.big { counter-reset: b; list-style: none; margin-left: 0; }
+  ol.big > li { position: relative; padding-left: 38px; margin-bottom: 14px; }
+  ol.big > li::before { counter-increment: b; content: counter(b); position: absolute; left: 0; top: 0; width: 26px; height: 26px; border-radius: 8px; background: var(--grad); color: #020617; font-size: 12.5px; font-weight: 800; display: flex; align-items: center; justify-content: center; }
+  .doclinks { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 13px; margin: 20px 0; }
+  .doclink { border: 1.5px solid var(--border); border-radius: 13px; padding: 16px 18px; background: var(--bg-2); text-decoration: none; display: block; transition: all .15s ease; }
+  .doclink:hover { border-color: var(--emerald); text-decoration: none; transform: translateY(-2px); }
+  .doclink .dt { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 3px; }
+  .doclink .dd { font-size: 12.5px; color: var(--text-3); }
+  .days { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin: 20px 0; }
+  .day { border: 1.5px solid var(--border); border-radius: 13px; padding: 15px 16px; background: var(--bg-2); border-top-width: 4px; }
+  .day.d1 { border-top-color: var(--rose); }
+  .day.d2 { border-top-color: var(--amber); }
+  .day.d3 { border-top-color: var(--cyan); }
+  .day.d4 { border-top-color: var(--emerald); }
+  .day .dn { font-size: 10.5px; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; color: var(--text-3); margin-bottom: 5px; }
+  .day .dv { font-size: 17px; font-weight: 800; letter-spacing: -.02em; line-height: 1.3; }
+  .day .dd { font-size: 12.5px; color: var(--text-3); margin-top: 6px; line-height: 1.6; }
+  .prio { font-size: 10.5px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; padding: 3px 9px; border-radius: 99px; white-space: nowrap; display: inline-block; }
+  .p1 { background: color-mix(in srgb, var(--rose) 20%, transparent); color: var(--rose-ink); }
+  .p2 { background: color-mix(in srgb, var(--amber) 20%, transparent); color: var(--amber-ink); }
+  .p3 { background: color-mix(in srgb, var(--cyan) 18%, transparent); color: var(--cyan-ink); }
+  .p4 { background: color-mix(in srgb, var(--emerald) 18%, transparent); color: var(--emerald-ink); }
+  .big { font-size: 15px; line-height: 1.75; }
+  .answers li { margin-bottom: 10px; }
+  .spec { display: grid; grid-template-columns: minmax(150px, 34%) 1fr; gap: 4px 18px; font-size: 13.5px; }
+  .spec > * { min-width: 0; }
+  .spec dt { color: var(--text-3); font-family: 'Geist Mono', monospace; font-size: 12.5px; }
+  .spec dd { color: var(--text-2); font-family: 'Geist Mono', monospace; font-size: 12.5px; }
+  .legend { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; margin-top: 18px; }
+  .legend div { font-size: 12.5px; color: var(--text-2); }
+  .legend b { color: var(--text); display: block; font-size: 13px; }
+  .hscale { display: flex; align-items: flex-end; gap: 3px; margin: 16px 0; flex-wrap: wrap; }
+  .hscale div { text-align: center; }
+  .hscale .bar { background: var(--grad); border-radius: 3px 3px 0 0; }
+  .hscale .lbl { font-size: 9.5px; color: var(--text-3); margin-top: 5px; font-family: 'Geist Mono', monospace; }
+  .type-row { display: flex; align-items: baseline; gap: 16px; padding: 9px 0; border-bottom: 1px solid var(--border); flex-wrap: wrap; }
+  .type-row:last-child { border-bottom: none; }
+  .type-row .tk { font-family: 'Geist Mono', monospace; font-size: 12px; color: var(--emerald-ink); min-width: 108px; }
+  .type-row .tm { font-family: 'Geist Mono', monospace; font-size: 11.5px; color: var(--text-3); min-width: 168px; }
+  .type-row .tv { color: var(--text); }
+  .anat { position: relative; border: 1.5px solid var(--border); border-radius: 14px; background: var(--bg-2); padding: 20px; margin: 18px 0; }
+  .anat svg { width: 100%; max-width: 300px; height: auto; display: block; margin: 0 auto; }
+  .dont { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 18px 0; }
+  @media (max-width: 720px) { .dont { grid-template-columns: 1fr; } }
+  .dbox { border: 1.5px solid var(--border); border-radius: 13px; padding: 15px; background: var(--bg-2); }
+  .dbox.ok { border-color: rgba(16,185,129,.42); }
+  .dbox.no { border-color: rgba(244,63,94,.42); }
+  .dbox .dh { font-size: 12px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 10px; }
+  .dbox.ok .dh { color: var(--emerald-ink); }
+  .dbox.no .dh { color: var(--rose-ink); }
+  .dbox .row2 { display: flex; gap: 12px; align-items: center; margin-bottom: 9px; }
+  .dbox ul { margin: 0 0 0 18px; font-size: 12.5px; }
+  .dbox li { margin-bottom: 4px; }
+  .swatch-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(178px, 1fr)); gap: 14px; margin: 22px 0; }
+  .swatch { border: 1.5px solid var(--border); border-radius: 14px; overflow: hidden; background: var(--bg-2); }
+  .swatch .chipbox { height: 92px; border-bottom: 1.5px solid var(--border); display: flex; align-items: flex-end; justify-content: flex-end; padding: 8px 10px; }
+  .swatch .chipbox span { font-size: 10.5px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; padding: 2px 7px; border-radius: 5px; }
+  .swatch .meta { padding: 11px 13px 13px; }
+  .swatch .nm { font-size: 13px; font-weight: 700; color: var(--text); font-family: 'Geist Mono', monospace; }
+  .swatch .hx { font-size: 12px; color: var(--text-3); font-family: 'Geist Mono', monospace; margin-top: 3px; }
+  .swatch .rl { font-size: 11.5px; color: var(--text-3); margin-top: 5px; }
+  .demo { border: 1.5px solid var(--border); border-radius: 13px; padding: 20px; background: var(--bg-2); margin: 14px 0; }
+  .demo-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .logo-stage { display: grid; place-items: center; padding: 54px 24px; margin: 22px 0; border: 1.5px solid var(--border); border-radius: 22px; background: radial-gradient(520px 300px at 50% 40%, rgba(16,185,129,.14), transparent 68%), var(--bg-2); }
+  .card { border: 1.5px solid var(--border); border-radius: var(--radius); background: var(--bg-2); padding: 24px; margin: 20px 0; box-shadow: var(--shadow); }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0; }
+  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin: 20px 0; }
+  @media (max-width: 860px) { .grid2, .grid3 { grid-template-columns: 1fr; } }
+  .card-t { font-size: 15px; font-weight: 700; margin-bottom: 11px; display: flex; align-items: center; gap: 9px; }
+  .callout { border-radius: 13px; padding: 17px 19px; margin: 19px 0; border: 1.5px solid; font-size: 14.5px; display: flex; gap: 13px; align-items: flex-start; }
+  .callout .ic { flex-shrink: 0; font-size: 17px; line-height: 1.45; }
+  .callout .bd { min-width: 0; }
+  .callout .ct { font-weight: 700; margin-bottom: 5px; font-size: 13.5px; letter-spacing: .01em; }
+  .callout p { margin: 0; font-size: 14.5px; }
+  .callout p + p { margin-top: 8px; }
+  .callout ul { margin: 8px 0 0 20px; }
+  .callout li { font-size: 14px; }
+  .co-info { background: rgba(6, 182, 212, .08); border-color: rgba(6, 182, 212, .32); }
+  .co-info .ct { color: var(--cyan-ink); }
+  .co-good { background: rgba(16, 185, 129, .08); border-color: rgba(16, 185, 129, .32); }
+  .co-good .ct { color: var(--emerald-ink); }
+  .co-warn { background: rgba(245, 158, 11, .08); border-color: rgba(245, 158, 11, .34); }
+  .co-warn .ct { color: var(--amber-ink); }
+  .co-stop { background: rgba(244, 63, 94, .08); border-color: rgba(244, 63, 94, .32); }
+  .co-stop .ct { color: var(--rose-ink); }
+  .tw { overflow-x: auto; margin: 20px 0; border: 1.5px solid var(--border); border-radius: 13px; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 540px; }
+  th { text-align: left; padding: 13px 16px; background: var(--bg-3); font-weight: 700; font-size: 12px; letter-spacing: .07em; text-transform: uppercase; color: var(--text-3); border-bottom: 1.5px solid var(--border); }
+  td { padding: 13px 16px; border-bottom: 1px solid var(--border); color: var(--text-2); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tbody tr:hover { background: color-mix(in srgb, var(--emerald) 4%, transparent); }
+  .codewrap { position: relative; margin: 19px 0; }
+  pre { background: var(--code-bg); border: 1.5px solid var(--border); border-radius: 13px; padding: 17px 19px; overflow-x: auto; font-family: 'Geist Mono', monospace; font-size: 13px; line-height: 1.68; color: var(--text-2); }
+  pre .c { color: var(--text-3); font-style: italic; }
+  pre .k { color: var(--syn-key); }
+  pre .s { color: var(--syn-str); }
+  pre .n { color: var(--syn-num); }
+  pre .d { color: var(--syn-key); }
+  .copy { position: absolute; top: 9px; right: 9px; z-index: 2; font-size: 11.5px; font-weight: 600; padding: 5px 11px; border-radius: 8px; background: var(--bg-2); border: 1.5px solid var(--border-soft); color: var(--text-3); cursor: pointer; font-family: inherit; transition: all .15s ease; }
+  .copy:hover { border-color: var(--emerald); color: var(--emerald-ink); }
+  .copy.done { border-color: var(--emerald); color: var(--emerald-ink); }
+  .fname { font-size: 11.5px; color: var(--text-3); font-weight: 600; margin-bottom: -8px; padding-left: 3px; font-family: 'Geist Mono', monospace; }
+  .gloss { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; margin: 20px 0; }
+  @media (max-width: 720px) { .gloss { grid-template-columns: 1fr; } }
+  .gitem { border: 1.5px solid var(--border); border-radius: 12px; padding: 15px 17px; background: var(--bg-2); }
+  .gterm { font-weight: 700; color: var(--emerald-ink); font-size: 14px; margin-bottom: 5px; font-family: 'Geist Mono', monospace; }
+  .gdef { font-size: 13.5px; color: var(--text-2); line-height: 1.62; }
+  .check { list-style: none; margin-left: 0; }
+  .check li { padding-left: 29px; position: relative; }
+  .check li::before { content: "☐"; position: absolute; left: 0; top: -1px; font-size: 17px; color: var(--emerald-ink); line-height: 1.45; }
+  .step { display: flex; gap: 16px; margin-bottom: 24px; align-items: flex-start; }
+  .badge { flex-shrink: 0; width: 32px; height: 32px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; color: #020617; background: var(--grad); box-shadow: 0 6px 16px -6px rgba(16, 185, 129, .55); }
+  .step-b { min-width: 0; flex: 1; padding-top: 2px; }
+  .step-b h4 { margin-top: 0; font-size: 15.5px; }
+  .step-b > :last-child { margin-bottom: 0; }
+  .do { display: flex; gap: 11px; align-items: flex-start; margin: 11px 0; font-size: 14px; }
+  .do .mk { flex-shrink: 0; width: 19px; height: 19px; border-radius: 5px; background: color-mix(in srgb, var(--emerald) 18%, transparent); border: 1.5px solid color-mix(in srgb, var(--emerald) 40%, transparent); color: var(--emerald-ink); font-size: 11px; display: flex; align-items: center; justify-content: center; font-weight: 800; margin-top: 2px; }
+  .flow { display: flex; flex-direction: column; gap: 9px; margin: 20px 0; }
+  .fnode { display: flex; align-items: center; gap: 13px; padding: 13px 17px; border: 1.5px solid var(--border); border-radius: 12px; background: var(--bg-2); font-size: 14px; }
+  .fnode .fi { font-size: 17px; flex-shrink: 0; }
+  .fnode .ft { font-weight: 600; color: var(--text); }
+  .fnode .fs { color: var(--text-3); font-size: 12.5px; }
+  .fnode.hi { border-color: color-mix(in srgb, var(--emerald) 45%, transparent); background: color-mix(in srgb, var(--emerald) 8%, var(--bg-2)); }
+  .farrow { text-align: center; color: var(--emerald); font-size: 17px; line-height: 1; margin: -3px 0; }
+  .doc-card { display: flex; flex-direction: column; position: relative; overflow: hidden; border: 1.5px solid var(--border); border-radius: 20px; background: var(--bg-2); padding: 26px 24px 22px; box-shadow: var(--shadow); transition: transform .18s ease, border-color .18s ease; }
+  .doc-card::after { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--grad); }
+  .doc-card:hover { transform: translateY(-3px); border-color: color-mix(in srgb, var(--emerald) 45%, transparent); }
+  .doc-card.soon { opacity: .58; }
+  .doc-card.soon::after { background: linear-gradient(90deg, var(--border-soft), var(--border-soft)); }
+  .doc-head { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 14px; }
+  .doc-ico { font-size: 27px; line-height: 1; flex-shrink: 0; margin-top: 2px; }
+  .doc-kicker { font-size: 11px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; color: var(--emerald-ink); margin-bottom: 5px; }
+  .doc-card.soon .doc-kicker { color: var(--text-3); }
+  .doc-title { font-size: 19px; font-weight: 800; letter-spacing: -.015em; line-height: 1.25; color: var(--text); }
+  .doc-desc { font-size: 14px; color: var(--text-2); margin-bottom: 14px; }
+  .doc-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 18px; }
+  .doc-tag { font-size: 11px; font-weight: 700; padding: 4px 9px; border-radius: 7px; background: var(--bg-3); border: 1px solid var(--border); color: var(--text-3); }
+  .doc-actions { margin-top: auto; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+  .btn-primary { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; padding: 11px 18px; border-radius: 11px; font-size: 13.5px; font-weight: 700; background: var(--grad); color: #020617; border: none; font-family: inherit; box-shadow: 0 8px 20px -8px rgba(16, 185, 129, .6); transition: transform .15s ease, box-shadow .15s ease; }
+  .btn-primary:hover { transform: translateY(-1px); text-decoration: none; box-shadow: 0 12px 26px -8px rgba(16, 185, 129, .7); }
+  .btn-secondary { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; padding: 11px 17px; border-radius: 11px; font-size: 13.5px; font-weight: 600; background: transparent; border: 1.5px solid var(--border-soft); color: var(--text-2); transition: all .15s ease; }
+  .btn-secondary:hover { border-color: var(--emerald); color: var(--text); text-decoration: none; }
+  .doc-file { font-size: 11.5px; color: var(--text-3); font-family: 'Geist Mono', monospace; }
+  .links-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 13px; margin: 20px 0; }
+  @media (max-width: 720px) { .links-strip { grid-template-columns: 1fr; } }
+  .linkbox { border: 1.5px solid var(--border); border-radius: 13px; padding: 16px 18px; background: var(--bg-2); text-decoration: none; display: block; transition: all .15s ease; }
+  .linkbox:hover { border-color: var(--emerald); text-decoration: none; transform: translateY(-2px); }
+  .linkbox .lb-t { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 3px; }
+  .linkbox .lb-d { font-size: 12.5px; color: var(--text-3); }
+  .footer { border-top: 1.5px solid var(--border); margin-top: 56px; padding-top: 30px; }
+  .fgrid { display: flex; flex-wrap: wrap; gap: 22px; align-items: center; justify-content: space-between; }
+  .fnote { font-size: 12.5px; color: var(--text-3); line-height: 1.7; }
+  .fnote strong { color: var(--text-2); }
+  .hero { border: 1.5px solid var(--border); border-radius: 22px; padding: 38px 34px; background: linear-gradient(160deg, var(--bg-2), var(--bg)); box-shadow: var(--shadow); margin-bottom: 38px; position: relative; overflow: hidden; }
+  .hero::after { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--grad); }
+  .pill { display: inline-flex; align-items: center; gap: 7px; font-size: 12px; font-weight: 600; padding: 6px 13px; border-radius: 999px; margin-bottom: 18px; background: color-mix(in srgb, var(--emerald) 12%, transparent); border: 1.5px solid color-mix(in srgb, var(--emerald) 32%, transparent); color: var(--emerald-ink); }
+  .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--emerald); box-shadow: 0 0 9px var(--emerald); }
+  .pill.cyan { background: color-mix(in srgb, var(--cyan) 12%, transparent); border-color: color-mix(in srgb, var(--cyan) 32%, transparent); color: var(--cyan-ink); }
+  .pill.amber { background: color-mix(in srgb, var(--amber) 12%, transparent); border-color: color-mix(in srgb, var(--amber) 34%, transparent); color: var(--amber-ink); }
+  h1 { font-size: clamp(28px, 4.6vw, 42px); font-weight: 800; letter-spacing: -.028em; line-height: 1.14; margin-bottom: 15px; }
+  .grad-text { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .hero p { color: var(--text-2); font-size: 16.5px; max-width: 66ch; }
+  .meta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+  .chip { font-size: 12px; font-weight: 600; padding: 6px 12px; border-radius: 8px; background: var(--bg-3); border: 1.5px solid var(--border); color: var(--text-3); }
+  section { margin-bottom: 46px; scroll-margin-top: 92px; }
+  h2 { font-size: clamp(21px, 3vw, 26px); font-weight: 800; letter-spacing: -.02em; margin-bottom: 8px; display: flex; align-items: baseline; gap: 13px; }
+  h2 .num { font-size: 13px; font-weight: 700; color: var(--emerald-ink); background: color-mix(in srgb, var(--emerald) 13%, transparent); border: 1.5px solid color-mix(in srgb, var(--emerald) 30%, transparent); padding: 3px 10px; border-radius: 8px; flex-shrink: 0; align-self: center; }
+  .lede { color: var(--text-2); font-size: 15.5px; margin-bottom: 22px; max-width: 70ch; }
+  h3 { font-size: 17px; font-weight: 700; margin: 26px 0 11px; letter-spacing: -.01em; }
+  h4 { font-size: 14.5px; font-weight: 700; margin: 18px 0 8px; color: var(--text); }
+  p { margin-bottom: 13px; color: var(--text-2); }
+  ul, ol { margin: 0 0 15px 22px; color: var(--text-2); }
+  li { margin-bottom: 8px; }
+  strong { color: var(--text); font-weight: 650; }
+  li strong, p strong { color: var(--text); }
+  a { color: var(--cyan-ink); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .mono { font-family: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+  .codechip { font-family: 'Geist Mono', monospace; font-size: .89em; background: var(--bg-3); border: 1px solid var(--border); padding: 1.5px 6px; border-radius: 6px; color: var(--cyan-ink); }
+  .src { font-size: 11.5px; color: var(--text-3); }
+  .note { font-size: 12.5px; color: var(--text-3); line-height: 1.65; }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="dosGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10B981" />
+      <stop offset="100%" stop-color="#06B6D4" />
+    </linearGradient>
+    <linearGradient id="dosGradSoft" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00D294" />
+      <stop offset="100%" stop-color="#00D2EF" />
+    </linearGradient>
+  </defs>
+</svg>
+
+<div id="progress"></div>
+
+<header>
+  <div class="hdr">
+    <div class="brandbox">
+      <svg viewBox="0 0 160 120" fill="none" aria-label="Dammie Optimus Monogram">
+        <g stroke="url(#dosGrad)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M 30 25 L 30 95" />
+          <path d="M 30 25 L 60 25 A 35 35 0 0 1 60 95 L 30 95" />
+          <circle cx="100" cy="60" r="35" />
+        </g>
+        <circle cx="100" cy="60" r="10" fill="url(#dosGrad)" />
+      </svg>
+    </div>
+    <div class="brandtext">
+      <div class="brandname">Dammie Optimus Solutions</div>
+      <div class="brandsub">Nigerian Career Compass — Research & Strategy</div>
+    </div>
+    <div class="hdr-spacer"></div>
+    <button class="btn ghost" id="themeBtn" type="button" aria-label="Toggle colour theme">
+      <span id="themeIcon">◐</span> <span id="themeLabel">Light</span>
+    </button>
+    <a class="btn" href="docs.html">← All documents</a>
+    <button class="btn" id="printBtn" type="button">⎙ Save / Print</button>
+  </div>
+</header>
+
+<div class="wrap">
+<div class="layout">
+
+  <nav class="toc">
+    <div class="toc-title">Contents</div>
+
+    <div class="toc-part">Part I · Landscape & Opportunity</div>
+    <a href="#vision">01 · The vision restated</a>
+    <a href="#landscape">02 · The Nigerian education landscape</a>
+    <a href="#waec">03 · WAEC grading & O'level requirements</a>
+    <a href="#jamb">04 · JAMB UTME, subject combinations & cut-offs</a>
+    <a href="#admission">05 · University admission mechanics</a>
+    <a href="#tracks">06 · The three academic tracks in detail</a>
+
+    <div class="toc-part">Part II · Market & Competition</div>
+    <a href="#competitors">07 · Existing platforms & competitive analysis</a>
+    <a href="#gaps">08 · Market gaps & opportunities</a>
+    <a href="#users">09 · User personas & journeys</a>
+
+    <div class="toc-part">Part III · Product Architecture</div>
+    <a href="#data">10 · Data strategy: sources, structure & freshness</a>
+    <a href="#matching">11 · Matching engine design</a>
+    <a href="#features">12 · Core features & user flows</a>
+    <a href="#tech">13 · Technical architecture & stack decisions</a>
+
+    <div class="toc-part">Part IV · Design & Experience</div>
+    <a href="#ux">14 · UX principles & accessibility</a>
+    <a href="#branding">15 · Brand application for Career Compass</a>
+    <a href="#ui">16 · Key screens & component patterns</a>
+
+    <div class="toc-part">Part V · Build Plan</div>
+    <a href="#phases">17 · Phased development roadmap</a>
+    <a href="#milestones">18 · Milestones, deliverables & success metrics</a>
+    <a href="#risks">19 · Risks, assumptions & mitigation</a>
+    <a href="#budget">20 · Resource & budget estimates</a>
+
+    <div class="toc-part">Part VI · Appendices</div>
+    <a href="#glossary">21 · Glossary</a>
+    <a href="#sources">22 · Sources & references</a>
+  </nav>
+
+  <main>
+
+    <div class="hero">
+      <div class="pill"><span class="dot"></span> Research Document · November 2026</div>
+      <h1>The Nigerian Career Compass<span class="grad-text"> — Research & Strategy</span></h1>
+      <p>
+        A comprehensive research and strategy document for building a data-driven career guidance platform
+        tailored to Nigerian secondary school leavers. Covers the education landscape, competitive analysis,
+        product architecture, technical decisions, and a phased development plan.
+      </p>
+      <div class="meta">
+        <span class="chip">22 sections</span>
+        <span class="chip">6 parts</span>
+        <span class="chip">~90 min read</span>
+        <span class="chip">Primary research: WAEC, JAMB, Myschool.ng</span>
+        <span class="chip">Brand system: Dammie Optimus Web Kit</span>
+      </div>
+    </div>
+
+    <div class="callout co-info">
+      <span class="ic">🔒</span>
+      <div class="bd">
+        <div class="ct">What this document is, and is not</div>
+        <p>
+          <strong>It is</strong> a research report: an analysis of the Nigerian tertiary admission ecosystem,
+          a competitive landscape review, a product specification, and a prioritised build plan.
+          <strong>It is not</strong> executable code — it is the blueprint from which code will be written.
+          Every recommendation is marked with priority and rough effort so you can decide what to build first.
+        </p>
+      </div>
+    </div>
+
+    <div class="callout co-warn">
+      <span class="ic">⏱️</span>
+      <div class="bd">
+        <div class="ct">If you only have twenty minutes</div>
+        <p>
+          Read <a href="#vision">01</a> for the vision, <a href="#gaps">08</a> for the market opportunity,
+          <a href="#matching">11</a> for the core algorithm, <a href="#phases">17</a> for the build plan,
+          and <a href="#risks">19</a> for what could go wrong.
+        </p>
+      </div>
+    </div>
+
+    <!-- ================= PART I ================= -->
+    <h2 style="margin-top:52px"><span class="num">I</span> Landscape & Opportunity</h2>
+
+    <section id="vision">
+      <h3>01 · The vision restated</h3>
+      <p class="lede">Transform the confusing, manual process of choosing a university course into an automated, objective, and highly personalised experience for every Nigerian school leaver.</p>
+      <p>
+        The <strong>Nigerian Career Compass</strong> is a decision-support system that cross-references a student's
+        academic reality (WAEC grades, JAMB score, preferred universities) with their professional aspirations.
+        It replaces the "trial and error" approach to admissions with data-driven matching, reducing the number
+        of students who end up in courses they are not suited for.
+      </p>
+      <div class="grid2">
+        <div class="card">
+          <div class="card-t"><span>🎯</span> Core promise</div>
+          <p>Enter WAEC results → select preferred universities → receive curated, achievable course recommendations.</p>
+        </div>
+        <div class="card">
+          <div class="card-t"><span>📊</span> Data foundation</div>
+          <p>WAEC grades + JAMB subject combinations + university-specific cut-offs + course requirements = match score.</p>
+        </div>
+        <div class="card">
+          <div class="card-t"><span>🎓</span> Three tracks</div>
+          <p>Science, Commercial, Arts — each with distinct subject requirements, career pathways, and university options.</p>
+        </div>
+        <div class="card">
+          <div class="card-t"><span>⚡</span> Speed & simplicity</div>
+          <p>Designed for mobile-first usage. Results in under 60 seconds. No psychometric testing required.</p>
+        </div>
+      </div>
+      <div class="q">
+        <b>The one-sentence version:</b> Every Nigerian school leaver deserves clear, data-backed guidance on which university courses they can realistically get into — before they waste a JAMB registration or a year of their life.
+      </div>
+    </section>
+
+    <section id="landscape">
+      <h3>02 · The Nigerian education landscape</h3>
+      <p class="lede">Understanding the system is the prerequisite for building a tool that works within it.</p>
+      
+      <h4>Scale of the problem</h4>
+      <div class="days">
+        <div class="day d1"><div class="dn">WAEC Candidates (2024)</div><div class="dv">1.6M+</div><div class="dd">Sat for WASSCE</div></div>
+        <div class="day d2"><div class="dn">JAMB Registrations (2026)</div><div class="dv">1.9M+</div><div class="dd">UTME candidates</div></div>
+        <div class="day d3"><div class="dn">Admission Rate</div><div class="dv"><30%</div><div class="dd">Gain admission yearly</div></div>
+        <div class="day d4"><div class="dn">Course Mismatch</div><div class="dv">~40%</div><div class="dd">Study unintended courses</div></div>
+      </div>
+      <p class="src">Sources: WAEC 2024 statistics, JAMB 2026 policy meeting communiqué, NUC admission data, multiple tracer studies.</p>
+
+      <h4>The admission funnel</h4>
+      <div class="flow">
+        <div class="fnode hi"><span class="fi">1</span><span class="ft">SS3 / School Leaver</span><span class="fs">Completes secondary school, sits WAEC/NECO</span></div>
+        <div class="farrow">▼</div>
+        <div class="fnode"><span class="fi">2</span><span class="ft">O'Level Results</span><span class="fs">5 credits incl. English & Mathematics (mandatory)</span></div>
+        <div class="farrow">▼</div>
+        <div class="fnode"><span class="fi">3</span><span class="ft">JAMB UTME Registration</span><span class="fs">Select 4 subjects matching desired course</span></div>
+        <div class="farrow">▼</div>
+        <div class="fnode"><span class="fi">4</span><span class="ft">JAMB UTME Exam</span><span class="fs">Score ≥ 150 (universities) or ≥ 100 (polytechnics/COE)</span></div>
+        <div class="farrow">▼</div>
+        <div class="fnode"><span class="fi">5</span><span class="ft">Post-UTME / Screening</span><span class="fs">University-specific aptitude test or O'level screening</span></div>
+        <div class="farrow">▼</div>
+        <div class="fnode hi"><span class="fi">6</span><span class="ft">Admission Offer</span><span class="fs">Via JAMB CAPS — accept/reject on portal</span></div>
+      </div>
+
+      <h4>Key structural facts</h4>
+      <ul>
+        <li><strong>170+ universities</strong> (Federal, State, Private) — each sets own cut-offs above JAMB minimum.</li>
+        <li><strong>Three academic tracks</strong> (Science, Commercial, Arts) determine eligible JAMB subject combinations.</li>
+        <li><strong>JAMB IBASS</strong> (Integrated Brochure & Syllabus System) is the official source for course requirements.</li>
+        <li><strong>CAPS (Central Admissions Processing System)</strong> automates admission offers — students must accept on portal.</li>
+        <li><strong>Minimum age</strong> for admission is <strong>16 years</strong> (enforced from 2026 policy meeting).</li>
+      </ul>
+    </section>
+
+    <section id="waec">
+      <h3>03 · WAEC grading & O'level requirements</h3>
+      <p class="lede">The WAEC result is the primary academic credential. Understanding its grading is the foundation of any matching engine.</p>
+
+      <h4>WASSCE grading scale (official)</h4>
+      <div class="tw">
+        <table>
+          <thead><tr><th>Grade</th><th>Numeric</th><th>Percentage</th><th>Interpretation</th><th>Credit Status</th></tr></thead>
+          <tbody>
+            <tr><td><strong>A1</strong></td><td>1</td><td>75–100%</td><td>Excellent</td><td><span class="st ok">Credit</span></td></tr>
+            <tr><td><strong>B2</strong></td><td>2</td><td>70–74%</td><td>Very Good</td><td><span class="st ok">Credit</span></td></tr>
+            <tr><td><strong>B3</strong></td><td>3</td><td>65–69%</td><td>Good</td><td><span class="st ok">Credit</span></td></tr>
+            <tr><td><strong>C4</strong></td><td>4</td><td>60–64%</td><td>Credit</td><td><span class="st ok">Credit</span></td></tr>
+            <tr><td><strong>C5</strong></td><td>5</td><td>55–59%</td><td>Credit</td><td><span class="st ok">Credit</span></td></tr>
+            <tr><td><strong>C6</strong></td><td>6</td><td>50–54%</td><td>Credit</td><td><span class="st ok">Credit</span></td></tr>
+            <tr><td><strong>D7</strong></td><td>7</td><td>45–49%</td><td>Pass</td><td><span class="st no">Not Credit</span></td></tr>
+            <tr><td><strong>E8</strong></td><td>8</td><td>40–44%</td><td>Pass</td><td><span class="st no">Not Credit</span></td></tr>
+            <tr><td><strong>F9</strong></td><td>9</td><td>0–39%</td><td>Fail</td><td><span class="st no">Not Credit</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>O'level requirements for university admission</h4>
+      <div class="callout co-info">
+        <span class="ic">📋</span>
+        <div class="bd">
+          <div class="ct">The universal rule</div>
+          <p>Every university course in Nigeria requires <strong>five (5) credit passes (C6 or better)</strong> at not more than two sittings, including:</p>
+          <ul>
+            <li><strong>English Language</strong> — mandatory for ALL courses</li>
+            <li><strong>Mathematics</strong> — mandatory for ALL courses (some Arts courses accept D7/E8, but most require credit)</li>
+            <li><strong>Three other relevant subjects</strong> — determined by the course/faculty</li>
+          </ul>
+        </div>
+      </div>
+
+      <h4>Subject requirements by track</h4>
+      <div class="grid3">
+        <div class="card">
+          <div class="card-t"><span>🔬</span> Science Track</div>
+          <ul style="margin:0;font-size:13.5px;color:var(--text-2)">
+            <li>English Language (credit)</li>
+            <li>Mathematics (credit)</li>
+            <li>Physics (credit)</li>
+            <li>Chemistry (credit)</li>
+            <li>Biology / Agric Science (credit)</li>
+            <li>Further Mathematics (advantage)</li>
+            <li>Geography / Computer Studies (options)</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-t"><span>💼</span> Commercial Track</div>
+          <ul style="margin:0;font-size:13.5px;color:var(--text-2)">
+            <li>English Language (credit)</li>
+            <li>Mathematics (credit)</li>
+            <li>Economics (credit)</li>
+            <li>Commerce / Accounting (credit)</li>
+            <li>Government / Geography (credit)</li>
+            <li>CRK / IRK (often accepted)</li>
+            <li>Further Maths (advantage for Actuarial Science)</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-t"><span>⚖️</span> Arts Track</div>
+          <ul style="margin:0;font-size:13.5px;color:var(--text-2)">
+            <li>English Language (credit)</li>
+            <li>Literature in English (credit — mandatory for Law, Languages, Mass Comm)</li>
+            <li>Government / History (credit)</li>
+            <li>CRK / IRK (credit)</li>
+            <li>Yoruba / Igbo / Hausa / French (credit)</li>
+            <li>Mathematics (credit preferred, some accept D7/E8)</li>
+            <li>Economics / Geography (options)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="decision-box">
+        <div class="db-title">Design Decision: Grade Input Method</div>
+        <div class="db-body">
+          Support <strong>both</strong> manual entry (dropdown per subject) and image upload (OCR for WAEC result printout).
+          Manual entry is faster for MVP; OCR adds convenience but requires ML pipeline. Store grades as numeric values (1–9)
+          internally for calculation. Validate that English & Mathematics are present and ≥ C6 (≤ 6).
+        </div>
+      </div>
+    </section>
+
+    <section id="jamb">
+      <h3>04 · JAMB UTME, subject combinations & cut-offs</h3>
+      <p class="lede">JAMB is the gatekeeper. The subject combination a student chooses determines which courses they can even apply for.</p>
+
+      <h4>2026/2027 JAMB minimum scores (Policy Meeting decision)</h4>
+      <div class="tw">
+        <table>
+          <thead><tr><th>Institution Type</th><th>Minimum UTME Score</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Universities</td><td><strong>150</strong></td><td>Most competitive courses require 200–300+</td></tr>
+            <tr><td>Colleges of Nursing</td><td><strong>150</strong></td><td>New category from 2026</td></tr>
+            <tr><td>Polytechnics</td><td><strong>100</strong></td><td></td></tr>
+            <tr><td>Monotechnics</td><td><strong>100</strong></td><td></td></tr>
+            <tr><td>Colleges of Agriculture</td><td><strong>100</strong></td><td></td></tr>
+            <tr><td>Colleges of Education</td><td><strong>100</strong></td><td></td></tr>
+            <tr><td>Innovation Enterprise Institutions (IEIs)</td><td><strong>100</strong></td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>JAMB subject combinations by track (core patterns)</h4>
+      <div class="course-grid">
+        <div class="course-card">
+          <div class="cc-head">
+            <span class="cc-title">Medicine & Surgery</span>
+            <span class="cc-track track-science">Science</span>
+          </div>
+          <div class="cc-reqs">UTME: <code>English, Physics, Chemistry, Biology</code><br>O'Level: 5 credits incl. Eng, Math, Phy, Chem, Bio</div>
+        </div>
+        <div class="course-card">
+          <div class="cc-head">
+            <span class="cc-title">Engineering (all)</span>
+            <span class="cc-track track-science">Science</span>
+          </div>
+          <div class="cc-reqs">UTME: <code>English, Physics, Chemistry, Mathematics</code><br>O'Level: 5 credits incl. Eng, Math, Phy, Chem, +1 Science</div>
+        </div>
+        <div class="course-card">
+          <div class="cc-head">
+            <span class="cc-title">Computer Science</span>
+            <span class="cc-track track-science">Science</span>
+          </div>
+          <div class="cc-reqs">UTME: <code>English, Math, Physics, Chemistry</code><br>O'Level: 5 credits incl. Eng, Math, Phy, Chem, +1</div>
+        </div>
+        <div class="course-card">
+          <div class="cc-head">
+            <span class="cc-title">Nursing Science</span>
+            <span class="cc-track track-science">Science</span>
+          </div>
+          <div class="cc-reqs">UTME: <code>English, Physics, Chemistry, Biology</code><br>O'Level: 5 credits incl. Eng, Math, Phy, Chem, Bio</div>
+        </div>
+        <div class="course-card">
+          <div class="cc-head">
+            <span class="cc-title">Pharmacy</span>
+            <span class="cc-track track-science">Science</span>
+          </div>
+          <div class="cc-reqs">UTME: <code>English, Physics, Chemistry, Biology</code><br>O'Level: 5 credits incl. Eng, Math, Phy, Chem, Bio</div>
+        </div>
+        <div class="course-card">
+          <div class="cc-head">
+            <span class="cc-title">Accounting</span>
+            <span class="cc-track track-commercial">Commercial</span>
+          </div>
+          <div class="cc-reqs">UTME: <code>English, Math, Economics, Accounting/Commerce/Govt</code><br>O'Level: 5 credits incl. Eng, Math, Eco, +2 Commercial</div>
+        </div>
+        <div class="course-card">
+          <div class="cc-head">
+            <span class="cc-title">Business Administration</span>
+            <span class="cc-track track-commercial">Commercial</span>
+          </div>
+          <div class="cc-reqs">UTME: <code>English, Math, Economics, Govt/Commerce/Geog</code><br>O'Level: 5 credits incl. Eng, Math, Eco, +2 Commercial</div>
+        </div>
+        <div class="course-card">
+          <div class="cc-head">
+            <span class="cc-title">Economics</span>
+            <span class="cc-track track-commercial">Commercial</span>
+          </div>
+          <div class="cc-reqs">UTME: <code>English, Math, Economics, Govt/Geog/Commerce</code><br>O'Level: 5 credits incl. Eng, Math, Eco, +2 Commercial</div>
+        </div>
+        <div class="course-card">
+          <div class="cc-head">
+            <span class="cc-title">Law</span>
+            <span class="cc-track track-arts">Arts</span>
+          </div>
+          <div class="cc-reqs">UTME: <code>English, Literature, Govt/History, CRK/IRK</code><br>O'Level: 5 credits incl. Eng, Lit, Govt/Hist, +2 Arts</div>
+        </div>
+        <div class="course-card">
+          <div class="cc-head">
+            <span class="cc-title">Mass Communication</span>
+            <span class="cc-track track-arts">Arts</span>
+          </div>
+          <div class="cc-reqs">UTME: <code>English, Literature, Govt, Economics/CRK</code><br>O'Level: 5 credits incl. Eng, Lit, Govt, +2 Arts</div>
+        </div>
+        <div class="course-card">
+          <div class="cc-head">
+            <span class="cc-title">English & Literary Studies</span>
+            <span class="cc-track track-arts">Arts</span>
+          </div>
+          <div class="cc-reqs">UTME: <code>English, Literature, Govt/History, CRK/IRK</code><br>O'Level: 5 credits incl. Eng, Lit, +3 Arts</div>
+        </div>
+        <div class="course-card">
+          <div class="cc-head">
+            <span class="cc-title">Political Science</span>
+            <span class="cc-track track-arts">Arts</span>
+          </div>
+          <div class="cc-reqs">UTME: <code>English, Govt/History, Economics, CRK/IRK/Lit</code><br>O'Level: 5 credits incl. Eng, Govt/Hist, Eco, +2</div>
+        </div>
+      </div>
+
+      <h4>Realistic cut-off ranges by course competitiveness (2026 estimates)</h4>
+      <div class="tw">
+        <table>
+          <thead><tr><th>Course Tier</th><th>Examples</th><th>Typical JAMB Range</th><th>Post-UTME Weight</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Tier 1 (Ultra-competitive)</strong></td><td>Medicine, Law, Pharmacy, Nursing, Dentistry</td><td>250–350+</td><td>High (often 50%+)</td></tr>
+            <tr><td><strong>Tier 2 (Highly competitive)</strong></td><td>Engineering, Computer Science, Accounting, Architecture</td><td>200–280</td><td>Medium-High</td></tr>
+            <tr><td><strong>Tier 3 (Competitive)</strong></td><td>Economics, Business Admin, Mass Comm, Biochemistry</td><td>180–240</td><td>Medium</td></tr>
+            <tr><td><strong>Tier 4 (Moderate)</strong></td><td>Education courses, Agriculture, some Sciences</td><td>160–200</td><td>Low-Medium</td></tr>
+            <tr><td><strong>Tier 5 (Accessible)</strong></td><td>Less subscribed courses, newer programmes</td><td>150–180</td><td>Low / O'level only</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="decision-box">
+        <div class="db-title">Design Decision: JAMB Score Handling</div>
+        <div class="db-body">
+          The app should <strong>not</strong> require JAMB score for initial recommendations — many users haven't taken it yet.
+          Instead: (1) Show courses they qualify for based on WAEC alone (O'level eligibility). (2) Add optional JAMB score field
+          to filter by realistic cut-off probability. (3) Show "Reach / Match / Safety" tiers based on score bands.
+          Store user's JAMB score if provided; use it to refine rankings.
+        </div>
+      </div>
+    </section>
+
+    <section id="admission">
+      <h3>05 · University admission mechanics</h3>
+      <p class="lede">Admission is not just about meeting minimums. Understanding the mechanics helps the app give honest, actionable advice.</p>
+
+      <h4>The three admission pathways</h4>
+      <div class="grid3">
+        <div class="card">
+          <div class="card-t"><span>📝</span> UTME (Regular)</div>
+          <p style="font-size:13.5px;color:var(--text-2)">Standard route: WAEC + JAMB UTME + Post-UTME. Most competitive. All 170+ universities.</p>
+        </div>
+        <div class="card">
+          <div class="card-t"><span>🔁</span> Direct Entry (DE)</div>
+          <p style="font-size:13.5px;color:var(--text-2)">For A'Level, ND, NCE, HND holders. Enter at 200/300 level. Requires JAMB DE registration. Different subject requirements.</p>
+        </div>
+        <div class="card">
+          <div class="card-t"><span>🎓</span> Pre-Degree / JUPEB</div>
+          <p style="font-size:13.5px;color:var(--text-2)">One-year foundation programmes run by universities. Guarantee admission to host university if passed. Good fallback.</p>
+        </div>
+      </div>
+
+      <h4>How CAPS works (Central Admissions Processing System)</h4>
+      <ol class="big">
+        <li>Candidate meets JAMB minimum + university cut-off + course cut-off.</li>
+        <li>University uploads admission list to CAPS.</li>
+        <li>Candidate sees offer on JAMB portal — must <strong>accept</strong> or <strong>reject</strong> within deadline.</li>
+        <li>If accepted, admission is confirmed; if rejected, slot goes to next candidate.</li>
+        <li>Candidate can only hold <strong>one admission at a time</strong>.</li>
+      </ol>
+
+      <h4>Post-UTME variations</h4>
+      <div class="tw">
+        <table>
+          <thead><tr><th>Type</th><th>Description</th><th>Examples</th><th>Weight in Aggregate</th></tr></thead>
+          <tbody>
+            <tr><td>CBT Aptitude Test</td><td>Computer-based test on campus or designated centres</td><td>UNILAG, OAU, UNIBEN, FUTA</td><td>30–50%</td></tr>
+            <tr><td>O'Level Screening</td><td>Points calculated from WAEC/NECO grades only</td><td>UI, UNN, ABU, FUTO (some years)</td><td>100% (no test)</td></tr>
+            <tr><td>Hybrid</td><td>Combination of O'level points + CBT score</td><td>LASU, UNIPORT, DELSU</td><td>Variable</td></tr>
+            <tr><td>Physical Screening</td><td>Document verification + interview (rare now)</td><td>Some Colleges of Education</td><td>Low</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>Catchment area & Educationally Less Developed States (ELDS)</h4>
+      <div class="callout co-warn">
+        <span class="ic">⚖️</span>
+        <div class="bd">
+          <div class="ct">Quota system affects real chances</div>
+          <p>
+            Federal universities allocate: <strong>45% Merit</strong>, <strong>35% Catchment</strong>, <strong>20% ELDS</strong>.
+            A candidate from a catchment state or ELDS gets a lower effective cut-off. The app should ask for state of origin
+            and factor this into "Match / Reach / Safety" classifications.
+          </p>
+        </div>
+      </div>
+
+      <div class="formula-box">
+<span class="fn">// Aggregate score calculation (common pattern)</span>
+<span class="fc">// Varies by university — this is a representative formula</span>
+<span class="fn">function</span> <span class="fs">calculateAggregate</span>(utmeScore, postUtmeScore, olevelPoints) {
+  <span class="fc">// Example: UNILAG style (50% UTME, 30% Post-UTME, 20% O'Level)</span>
+  <span class="k">const</span> utmeWeight = <span class="n">0.5</span>;
+  <span class="k">const</span> postWeight = <span class="n">0.3</span>;
+  <span class="k">const</span> olevelWeight = <span class="n">0.2</span>;
+  
+  <span class="k">return</span> (
+    (utmeScore / <span class="n">400</span>) * <span class="n">100</span> * utmeWeight +
+    (postUtmeScore / <span class="n">100</span>) * <span class="n">100</span> * postWeight +
+    (olevelPoints / <span class="n">40</span>) * <span class="n">100</span> * olevelWeight
+  );
+}
+</div>
+    </section>
+
+    <section id="tracks">
+      <h3>06 · The three academic tracks in detail</h3>
+      <p class="lede">Every Nigerian secondary school student is streamed into Science, Commercial, or Arts. The track determines everything that follows.</p>
+
+      <h4>Track distribution (approximate)</h4>
+      <div class="days">
+        <div class="day d1"><div class="dn">Science</div><div class="dv">~45%</div><div class="dd">Largest cohort</div></div>
+        <div class="day d2"><div class="dn">Commercial</div><div class="dv">~30%</div><div class="dd">Growing fast</div></div>
+        <div class="day d3"><div class="dn">Arts</div><div class="dv">~25%</div><div class="dd">Underserved</div></div>
+      </div>
+
+      <h4>Science track — courses & career pathways</h4>
+      <div class="course-grid">
+        <div class="course-card">
+          <div class="cc-head"><span class="cc-title">Medicine & Health</span><span class="cc-track track-science">Science</span></div>
+          <div class="cc-reqs">Medicine, Nursing, Pharmacy, Dentistry, Physiotherapy, Radiography, Med Lab Science, Public Health</div>
+        </div>
+        <div class="course-card">
+          <div class="cc-head"><span class="cc-title">Engineering & Tech</span><span class="cc-track track-science">Science</span></div>
+          <div class="cc-reqs">Civil, Mechanical, Electrical, Chemical, Computer, Mechatronics, Petroleum, Marine, Agric, Materials</div>
+        </div>
+        <div class="course-card">
+          <div class="cc-head"><span class="cc-title">Computing & Data</span><span class="cc-track track-science">Science</span></div>
+          <div class="cc-reqs">Computer Science, Software Engineering, Cybersecurity, Data Science, Information Systems, AI</div>
+        </div>
+        <div class="course-card">
+          <div class="cc-head"><span class="cc-title">Pure & Applied Sciences</span><span class="cc-track track-science">Science</span></div>
+          <div class="cc-reqs">Physics, Chemistry, Biology, Biochemistry, Microbiology, Biotechnology, Mathematics, Statistics, Geology</div>
+        </div>
+        <div class="course-card">
+          <div class="cc-head"><span class="cc-title">Agriculture & Environment</span><span class="cc-track track-science">Science</span></div>
+          <div class="cc-reqs">Agric Economics, Animal Science, Crop Science, Fisheries, Forestry, Environmental Management, Food Science</div>
+        </div>
+      </div>
+
+      <h4>Commercial track — courses & career pathways</h4>
+      <div class="course-grid">
+        <div class="course-card">
+          <div class="cc-head"><span class="cc-title">Accounting & Finance</span><span class="cc-track track-commercial">Commercial</span></div>
+          <div class="cc-reqs">Accounting, Banking & Finance, Actuarial Science, Insurance, Taxation, Financial Technology</div>
+        </div>
+        <div class="course-card">
+          <div class="cc-head"><span class="cc-title">Management & Business</span><span class="cc-track track-commercial">Commercial</span></div>
+          <div class="cc-reqs">Business Admin, Entrepreneurship, Human Resources, Marketing, Procurement, Project Management</div>
+        </div>
+        <div class="course-card">
+          <div class="cc-head"><span class="cc-title">Economics & Social Sciences</span><span class="cc-track track-commercial">Commercial</span></div>
+          <div class="cc-reqs">Economics, Econometrics, Development Studies, Public Admin, Industrial Relations, Tourism</div>
+        </div>
+      </div>
+
+      <h4>Arts track — courses & career pathways</h4>
+      <div class="course-grid">
+        <div class="course-card">
+          <div class="cc-head"><span class="cc-title">Law & Legal</span><span class="cc-track track-arts">Arts</span></div>
+          <div class="cc-reqs">Law (LLB), Criminology, Peace & Conflict Studies, International Relations</div>
+        </div>
+        <div class="course-card">
+          <div class="cc-head"><span class="cc-title">Media & Communication</span><span class="cc-track track-arts">Arts</span></div>
+          <div class="cc-reqs">Mass Communication, Journalism, Public Relations, Advertising, Broadcasting, Digital Media</div>
+        </div>
+        <div class="course-card">
+          <div class="cc-head"><span class="cc-title">Languages & Humanities</span><span class="cc-track track-arts">Arts</span></div>
+          <div class="cc-reqs">English, Linguistics, French, Arabic, Yoruba, Igbo, Hausa, History, Philosophy, Religious Studies</div>
+        </div>
+        <div class="course-card">
+          <div class="cc-head"><span class="cc-title">Creative & Social</span><span class="cc-track track-arts">Arts</span></div>
+          <div class="cc-reqs">Theatre Arts, Music, Fine Arts, Archaeology, Anthropology, Sociology, Psychology, Library Science</div>
+        </div>
+      </div>
+
+      <h4>Cross-track opportunities (students often don't know these exist)</h4>
+      <div class="grid2">
+        <div class="card">
+          <div class="card-t"><span>🔄</span> Science → Commercial</div>
+          <ul style="margin:0;font-size:13.5px;color:var(--text-2)">
+            <li>Actuarial Science (needs Further Maths)</li>
+            <li>Economics (with Maths credit)</li>
+            <li>Statistics / Data Science</li>
+            <li>Insurance & Risk Management</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-t"><span>🔄</span> Commercial → Arts</div>
+          <ul style="margin:0;font-size:13.5px;color:var(--text-2)">
+            <li>Mass Communication</li>
+            <li>Public Administration</li>
+            <li>International Relations</li>
+            <li>Library & Information Science</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-t"><span>🔄</span> Arts → Commercial (rare)</div>
+          <ul style="margin:0;font-size:13.5px;color:var(--text-2)">
+            <li>Requires Mathematics credit</li>
+            <li>Some Business Admin programmes</li>
+            <li>Tourism & Hospitality</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-t"><span>🔄</span> Science → Arts (rare)</div>
+          <ul style="margin:0;font-size:13.5px;color:var(--text-2)">
+            <li>Requires Literature credit</li>
+            <li>Mass Comm (some unis accept Science)</li>
+            <li>Psychology (some faculties)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="decision-box">
+        <div class="db-title">Design Decision: Track Detection</div>
+        <div class="db-body">
+          Infer track automatically from the <strong>subjects with credit grades</strong> in WAEC.
+          Science: Physics + Chemistry + Biology present. Commercial: Economics + Commerce/Accounts present. Arts: Literature + Government/History present.
+          Allow manual override. Show "detected track" with confidence indicator.
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PART II ================= -->
+    <h2 style="margin-top:52px"><span class="num">II</span> Market & Competition</h2>
+
+    <section id="competitors">
+      <h3>07 · Existing platforms & competitive analysis</h3>
+      <p class="lede">The market has players, but none solves the matching problem end-to-end.</p>
+
+      <div class="competitor-card">
+        <div class="comp-head">
+          <span class="comp-name">Myschool.ng</span>
+          <span class="comp-type">Market Leader</span>
+        </div>
+        <p class="comp-desc">Nigeria's largest student platform. CBT practice, past questions, admission news, scholarships, community forums.</p>
+        <div class="comp-features">
+          <span>JAMB CBT Simulator</span>
+          <span>WAEC/NECO Past Questions</span>
+          <span>Post-UTME Past Questions</span>
+          <span>Admission News Aggregator</span>
+          <span>Scholarships Database</span>
+          <span>Community Q&A</span>
+          <span>Course Cut-off Marks (crowdsourced)</span>
+        </div>
+        <div class="callout co-warn" style="margin-top:14px;">
+          <span class="ic">📌</span>
+          <div class="bd">
+            <div class="ct">Gaps</div>
+            <p>No personalised course matching. Cut-off marks are historical averages, not predictive. No university-specific requirement checking. No WAEC-grade-based eligibility filtering. Monetisation-heavy (CBT software sales).</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="competitor-card">
+        <div class="comp-head">
+          <span class="comp-name">JAMB IBASS</span>
+          <span class="comp-type">Official Source</span>
+        </div>
+        <p class="comp-desc">Integrated Brochure & Syllabus System. Official course requirements, subject combinations, and syllabi.</p>
+        <div class="comp-features">
+          <span>Authoritative course requirements</span>
+          <span>Official UTME subject combinations</span>
+          <span>Syllabus for each subject</span>
+          <span>Institution list & programmes</span>
+        </div>
+        <div class="callout co-warn" style="margin-top:14px;">
+          <span class="ic">📌</span>
+          <div class="bd">
+            <div class="ct">Gaps</div>
+            <p>Not user-friendly — built for administrators, not students. No matching engine. No cut-off data. No mobile optimisation. No personalisation. Requires knowing what you're looking for.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="competitor-card">
+        <div class="comp-head">
+          <span class="comp-name">CampusGateway / SchoolTry / Edves</span>
+          <span class="comp-type">School Mgmt / Admission Portals</span>
+        </div>
+        <p class="comp-desc">School management systems that added admission portals. Focus on application processing, not guidance.</p>
+        <div class="comp-features">
+          <span>Application form management</span>
+          <span>Document upload</span>
+          <span>Payment integration</span>
+          <span>Admission status tracking</span>
+        </div>
+        <div class="callout co-warn" style="margin-top:14px;">
+          <span class="ic">📌</span>
+          <div class="bd">
+            <div class="ct">Gaps</div>
+            <p>B2B focus (sell to schools). No student-facing guidance. No matching. No career info.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="competitor-card">
+        <div class="comp-head">
+          <span class="comp-name">CareerNG / MyJobMag / Jobberman</span>
+          <span class="comp-type">Job Boards (Post-graduation)</span>
+        </div>
+        <p class="comp-desc">Focus on graduate employment, not pre-university guidance.</p>
+        <div class="comp-features">
+          <span>Job listings</span>
+          <span>CV templates</span>
+          <span>Career articles</span>
+          <span>Salary guides</span>
+        </div>
+        <div class="callout co-warn" style="margin-top:14px;">
+          <span class="ic">📌</span>
+          <div class="bd">
+            <div class="ct">Gaps</div>
+            <p>Wrong stage of lifecycle. No admission guidance. No course matching.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="competitor-card">
+        <div class="comp-head">
+          <span class="comp-name">University Websites / Brochures</span>
+          <span class="comp-type">Fragmented Official Sources</span>
+        </div>
+        <p class="comp-desc">Each university publishes own cut-offs, requirements, and Post-UTME details. Inconsistent formats, hard to compare.</p>
+        <div class="comp-features">
+          <span>Official cut-off marks</span>
+          <span>Course-specific requirements</span>
+          <span>Post-UTME schedules</span>
+          <span>Fee schedules</span>
+        </div>
+        <div class="callout co-warn" style="margin-top:14px;">
+          <span class="ic">📌</span>
+          <div class="bd">
+            <div class="ct">Gaps</div>
+            <p>170+ separate sources. No aggregation. No comparison. Often outdated. Poor mobile UX.</p>
+          </div>
+        </div>
+      </div>
+
+      <h4>Competitive positioning map</h4>
+      <div class="tw">
+        <table>
+          <thead><tr><th>Dimension</th><th>Myschool.ng</th><th>JAMB IBASS</th><th>Univ. Sites</th><th><strong>Career Compass (Target)</strong></th></tr></thead>
+          <tbody>
+            <tr><td>Personalised matching</td><td><span class="st no">No</span></td><td><span class="st no">No</span></td><td><span class="st no">No</span></td><td><span class="st ok"><strong>Yes</strong></span></td></tr>
+            <tr><td>WAEC-grade-based eligibility</td><td><span class="st no">No</span></td><td><span class="st no">No</span></td><td><span class="st no">No</span></td><td><span class="st ok"><strong>Yes</strong></span></td></tr>
+            <tr><td>University-specific requirements</td><td><span class="st warn">Partial</span></td><td><span class="st ok">Yes</span></td><td><span class="st ok">Yes</span></td><td><span class="st ok"><strong>Yes (aggregated)</strong></span></td></tr>
+            <tr><td>Predictive cut-off estimates</td><td><span class="st warn">Crowdsourced</span></td><td><span class="st no">No</span></td><td><span class="st ok">Current year only</span></td><td><span class="st ok"><strong>Yes (ML-based)</strong></span></td></tr>
+            <tr><td>Catchment/ELDS factoring</td><td><span class="st no">No</span></td><td><span class="st no">No</span></td><td><span class="st warn">Buried in PDF</span></td><td><span class="st ok"><strong>Yes</strong></span></td></tr>
+            <tr><td>Mobile-first UX</td><td><span class="st ok">Yes</span></td><td><span class="st no">No</span></td><td><span class="st no">No</span></td><td><span class="st ok"><strong>Yes</strong></span></td></tr>
+            <tr><td>Career pathway info</td><td><span class="st warn">Forum-based</span></td><td><span class="st no">No</span></td><td><span class="st no">No</span></td><td><span class="st ok"><strong>Yes (structured)</strong></span></td></tr>
+            <tr><td>Free to use</td><td><span class="st warn">Freemium</span></td><td><span class="st ok">Yes</span></td><td><span class="st ok">Yes</span></td><td><span class="st ok"><strong>Yes</strong></span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="gaps">
+      <h3>08 · Market gaps & opportunities</h3>
+      <p class="lede">Where the white space is — and why Career Compass can own it.</p>
+
+      <div class="gap-tag good">✅ No WAEC-grade-based eligibility engine exists</div>
+      <div class="gap-tag good">✅ No unified university requirement aggregator</div>
+      <div class="gap-tag good">✅ No catchment/ELDS-aware matching</div>
+      <div class="gap-tag good">✅ No "Reach/Match/Safety" tiering for Nigerian context</div>
+      <div class="gap-tag good">✅ No career pathway visualisation per course</div>
+      <div class="gap-tag good">✅ No Direct Entry / JUPEB pathway guidance</div>
+      <div class="gap-tag good">✅ No parent/guardian view mode</div>
+      <div class="gap-tag good">✅ No offline-capable PWA for low-connectivity areas</div>
+      <div class="gap-tag">❌ Data freshness: cut-offs change yearly</div>
+      <div class="gap-tag">❌ JAMB IBASS not API-accessible</div>
+      <div class="gap-tag">❌ University sites inconsistent</div>
+      <div class="gap-tag">❌ Post-UTME formats vary wildly</div>
+
+      <h4>The "Why Now" factors</h4>
+      <ol class="big">
+        <li><strong>JAMB policy stability:</strong> 2026 policy meeting set clear minimums (150/100) and age floor (16). Rules are settled for near term.</li>
+        <li><strong>Smartphone penetration:</strong> >60% of Nigerian youth have smartphones; mobile-first is now default.</li>
+        <li><strong>Data cost decline:</strong> MTN/Airtel/Glo data bundles affordable enough for lightweight web apps.</li>
+        <li><strong>Trust in digital:</strong> Post-COVID, online registration (JAMB, WAEC, CAPS) is normalised.</li>
+        <li><strong>No dominant player owns guidance:</strong> Myschool owns practice; JAMB owns process; nobody owns <em>decision support</em>.</li>
+      </ol>
+    </section>
+
+    <section id="users">
+      <h3>09 · User personas & journeys</h3>
+      <p class="lede">Four primary personas, each with distinct needs and constraints.</p>
+
+      <div class="grid2">
+        <div class="card">
+          <div class="card-t"><span>👨‍🎓</span> Persona 1: Ambitious Science Student</div>
+          <dl class="spec">
+            <dt>Name</dt><dd>Chidi, 17, Lagos</dd>
+            <dt>Track</dt><dd>Science (Physics, Chem, Bio, Further Maths)</dd>
+            <dt>WAEC</dt><dd>3As, 4Bs, 2Cs</dd>
+            <dt>JAMB Target</dt><dd>280+ (Medicine at UNILAG/LUTH)</dd>
+            <dt>Pain</dt><dd>Overwhelmed by options; fears wasting JAMB on wrong course; parents push Medicine</dd>
+            <dt>Need</dt><dd>Realistic tiered options; backup plans; course comparison</dd>
+          </dl>
+        </div>
+        <div class="card">
+          <div class="card-t"><span>👩‍🎓</span> Persona 2: Commercial Student, First-Gen</div>
+          <dl class="spec">
+            <dt>Name</dt><dd>Aisha, 18, Kano</dd>
+            <dt>Track</dt><dd>Commercial (Econs, Commerce, Govt, Acct)</dd>
+            <dt>WAEC</dt><dd>2As, 3Bs, 4Cs (Math C5)</dd>
+            <dt>JAMB Target</dt><dd>200 (Accounting at BUK/ABU)</dd>
+            <dt>Pain</dt><dd>No counsellor at school; relies on cousins' advice; unsure of cut-offs</dd>
+            <dt>Need</dt><dd>Simple eligibility check; catchment advantage explanation; scholarship info</dd>
+          </dl>
+        </div>
+        <div class="card">
+          <div class="card-t"><span>👨‍👩‍👧</span> Persona 3: Parent / Guardian</div>
+          <dl class="spec">
+            <dt>Name</dt><dd>Mr. Adebayo, 48, Ibadan</dd>
+            <dt>Role</dt><dd>Father of SS3 daughter (Arts track)</dd>
+            <dt>Knowledge</dt><dd>Knows JAMB exists; doesn't know subject combos or cut-offs</dd>
+            <dt>Pain</dt><dd>Afraid daughter picks "useless" course; wants ROI on education spend</dd>
+            <dt>Need</dt><dd>Career outcomes per course; salary data; "parent view" summary</dd>
+          </dl>
+        </div>
+        <div class="card">
+          <div class="card-t"><span>🎓</span> Persona 4: Repeat JAMB Candidate</div>
+          <dl class="spec">
+            <dt>Name</dt><dd>Emeka, 20, Enugu</dd>
+            <dt>History</dt><dd>Scored 190 last year; missed Engineering cut-off; now considering alternatives</dd>
+            <dt>WAEC</dt><dd>Credits in all 9 subjects (from 2023)</dd>
+            <dt>Pain</dt><dd>Frustrated; needs realistic options this time; open to poly/COE</dd>
+            <dt>Need</dt><dd>"Safety" tier prioritised; Direct Entry info; course transfer pathways</dd>
+          </dl>
+        </div>
+      </div>
+
+      <h4>Core user journey (MVP)</h4>
+      <div class="flow">
+        <div class="fnode hi"><span class="fi">1</span><span class="ft">Landing</span><span class="fs">"Find your course in 60 seconds" — no login required</span></div>
+        <div class="farrow">▼</div>
+        <div class="fnode"><span class="fi">2</span><span class="ft">WAEC Entry</span><span class="fs">Select subjects + grades (dropdowns) or upload photo</span></div>
+        <div class="farrow">▼</div>
+        <div class="fnode"><span class="fi">3</span><span class="ft">Preferences</span><span class="fs">Track confirmation, preferred universities, state of origin</span></div>
+        <div class="farrow">▼</div>
+        <div class="fnode"><span class="fi">4</span><span class="ft">Optional JAMB</span><span class="fs">Enter score if available (skip for pre-JAMB users)</span></div>
+        <div class="farrow">▼</div>
+        <div class="fnode hi"><span class="fi">5</span><span class="ft">Results</span><span class="fs">Tiered list: Match / Reach / Safety with reasons</span></div>
+        <div class="farrow">▼</div>
+        <div class="fnode"><span class="fi">6</span><span class="ft">Deep Dive</span><span class="fs">Course detail: requirements, career paths, salaries, similar courses</span></div>
+        <div class="farrow">▼</div>
+        <div class="fnode"><span class="fi">7</span><span class="ft">Export / Share</span><span class="fs">PDF summary, WhatsApp share, save to account</span></div>
+      </div>
+    </section>
+
+    <!-- ================= PART III ================= -->
+    <h2 style="margin-top:52px"><span class="num">III</span> Product Architecture</h2>
+
+    <section id="data">
+      <h3>10 · Data strategy: sources, structure & freshness</h3>
+      <p class="lede">Data is the moat. The matching engine is only as good as the requirements database behind it.</p>
+
+      <h4>Primary data sources</h4>
+      <div class="tw">
+        <table>
+          <thead><tr><th>Source</th><th>What it provides</th><th>Access method</th><th>Freshness</th><th>Reliability</th></tr></thead>
+          <tbody>
+            <tr><td><strong>JAMB IBASS</strong></td><td>Official course list, UTME subject combos, O'level requirements, syllabi</td><td>Web scraping + manual curation (no public API)</td><td>Annual (new brochure each year)</td><td><span class="st ok">High</span></td></tr>
+            <tr><td><strong>University websites</strong></td><td>Current year cut-offs, Post-UTME format, fees, catchment states</td><td>Scraping + manual verification</td><td>Annual (admission season)</td><td><span class="st warn">Medium</span></td></tr>
+            <tr><td><strong>JAMB Policy Meeting Communiqués</strong></td><td>Minimum scores, age limits, policy changes</td><td>Official PDF download</td><td>Annual</td><td><span class="st ok">High</span></td></tr>
+            <tr><td><strong>NUC Programme Accreditation Lists</strong></td><td>Which courses are accredited at which universities</td><td>NUC website / PDF</td><td>Quarterly</td><td><span class="st ok">High</span></td></tr>
+            <tr><td><strong>Myschool.ng / Past Questions</strong></td><td>Historical cut-offs, Post-UTME patterns, student-reported data</td><td>Crowdsourced / scraping</td><td>Continuous</td><td><span class="st warn">Medium (self-reported)</span></td></tr>
+            <tr><td><strong>WAEC/NECO Syllabi</strong></td><td>Subject content for career pathway mapping</td><td>Official download</td><td>Stable</td><td><span class="st ok">High</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>Core data models</h4>
+      <div class="formula-box">
+<span class="fc">// TypeScript-like schema definitions</span>
+<span class="fn">interface</span> <span class="fs">Course</span> {
+  <span class="n">id</span>: <span class="fs">string</span>;                    <span class="fc">// e.g. "MED-SUR-UNILAG"</span>
+  <span class="n">name</span>: <span class="fs">string</span>;                  <span class="fc">// "Medicine and Surgery"</span>
+  <span class="n">universityId</span>: <span class="fs">string</span>;           <span class="fc">// "UNILAG"</span>
+  <span class="n">faculty</span>: <span class="fs">string</span>;                 <span class="fc">// "Clinical Sciences"</span>
+  <span class="n">track</span>: <span class="fs">'science' | 'commercial' | 'arts'</span>;
+  <span class="n">durationYears</span>: <span class="fs">number</span>;            <span class="fc">// 4, 5, 6</span>
+  <span class="n">utmeSubjects</span>: <span class="fs">string[]</span>;            <span class="fc">// ["English", "Physics", "Chemistry", "Biology"]</span>
+  <span class="n">olevelRequirements</span>: <span class="fs">OLevelReq[]</span>;     <span class="fc">// [{subject: "Physics", minGrade: 6}, ...]</span>
+  <span class="n">cutoffHistory</span>: <span class="fs">CutoffRecord[]</span>;    <span class="fc">// [{year: 2024, merit: 280, catchment: 260, elds: 240}, ...]</span>
+  <span class="n">predictedCutoff</span>: <span class="fs">PredictedCutoff</span>;   <span class="fc">// {merit: 285, confidence: 0.72}</span>
+  <span class="n">postUtmeType</span>: <span class="fs">'cbt' | 'screening' | 'hybrid'</span>;
+  <span class="n">postUtmeWeight</span>: <span class="fs">number</span>;           <span class="fc">// 0.3–0.5</span>
+  <span class="n">catchmentStates</span>: <span class="fs">string[]</span>;          <span class="fc">// ["Lagos", "Ogun"]</span>
+  <span class="n">isELDS</span>: <span class="fs">boolean</span>;                    <span class="fc">// Educationally Less Developed State</span>
+  <span class="n">careerPaths</span>: <span class="fs">CareerPath[]</span>;        <span class="fc">// Structured career outcomes</span>
+  <span class="n">relatedCourses</span>: <span class="fs">string[]</span>;            <span class="fc">// Course IDs for "similar" suggestions</span>
+  <span class="n">accreditationStatus</span>: <span class="fs">'full' | 'interim' | 'denied'</span>;
+  <span class="n">fees</span>: <span class="fs">FeeStructure</span>;               <span class="fc">// {tuition, acceptance, other, currency: 'NGN'}</span>
+}
+
+<span class="fn">interface</span> <span class="fs">OLevelReq</span> {
+  <span class="n">subject</span>: <span class="fs">string</span>;
+  <span class="n">minGrade</span>: <span class="fs">number</span>;              <span class="fc">// 1-6 (A1-C6), 6 = C6 minimum</span>
+  <span class="n">isMandatory</span>: <span class="fs">boolean</span>;
+  <span class="n">alternatives</span>: <span class="fs">string[]</span>;         <span class="fc">// e.g. ["Biology", "Agricultural Science"]</span>
+}
+
+<span class="fn">interface</span> <span class="fs">UserProfile</span> {
+  <span class="n">waecGrades</span>: <span class="fs">Record<string, number></span>;  <span class="fc">// {"English": 2, "Mathematics": 3, "Physics": 4, ...}</span>
+  <span class="n">track</span>: <span class="fs">'science' | 'commercial' | 'arts' | null</span>;
+  <span class="n">jambScore</span>: <span class="fs">number | null</span>;          <span class="fc">// 150-400, optional</span>
+  <span class="n">preferredUniversities</span>: <span class="fs">string[]</span>;
+  <span class="n">stateOfOrigin</span>: <span class="fs">string</span>;
+  <span class="n">isELDS</span>: <span class="fs">boolean</span>;
+  <span class="n">preferredCourses</span>: <span class="fs">string[]</span>;       <span class="fc">// Optional: courses they're interested in</span>
+}
+</div>
+
+      <h4>Data freshness strategy</h4>
+      <div class="grid2">
+        <div class="card">
+          <div class="card-t"><span>📅</span> Annual Major Update</div>
+          <ul style="margin:0;font-size:13.5px;color:var(--text-2)">
+            <li>New JAMB brochure (usually May–June)</li>
+            <li>University cut-off releases (Aug–Oct)</li>
+            <li>Policy meeting decisions</li>
+            <li>Accreditation status changes</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-t"><span>🔄</span> Continuous Monitoring</div>
+          <ul style="margin:0;font-size:13.5px;color:var(--text-2)">
+            <li>University website watchers (RSS/scraping)</li>
+            <li>JAMB CAPS admission list publications</li>
+            <li>User-reported corrections (crowdsourcing)</li>
+            <li>News monitoring for policy changes</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="decision-box">
+        <div class="db-title">Design Decision: Data Versioning</div>
+        <div class="db-body">
+          Every data record carries a <code>validFrom</code> and <code>validTo</code> (academic session, e.g. <code>2026/2027</code>).
+          The app defaults to the current session but allows viewing previous years for trend analysis.
+          Cut-off predictions are marked with <code>predictionDate</code> and <code>confidence</code>.
+          Source attribution on every field (IBASS, Univ-Website, User-Report, Derived).
+        </div>
+      </div>
+    </section>
+
+    <section id="matching">
+      <h3>11 · Matching engine design</h3>
+      <p class="lede">The core algorithm — transparent, explainable, and tunable.</p>
+
+      <h4>Matching pipeline</h4>
+      <div class="flow">
+        <div class="fnode hi"><span class="fi">1</span><span class="ft">Eligibility Filter</span><span class="fs">Hard filters: O'level requirements met, track match, accreditation status</span></div>
+        <div class="farrow">▼</div>
+        <div class="fnode"><span class="fi">2</span><span class="ft">Score Calculation</span><span class="fs">Weighted match score (0–100) per eligible course</span></div>
+        <div class="farrow">▼</div>
+        <div class="fnode"><span class="fi">3</span><span class="ft">Tier Classification</span><span class="fs">Match / Reach / Safety based on JAMB score + cut-off predictions</span></div>
+        <div class="farrow">▼</div>
+        <div class="fnode"><span class="fi">4</span><span class="ft">Ranking & Boosts</span><span class="fs">Preferred unis, catchment advantage, career alignment</span></div>
+        <div class="farrow">▼</div>
+        <div class="fnode hi"><span class="fi">5</span><span class="ft">Explanation Generation</span><span class="fs">Human-readable reasons for each recommendation</span></div>
+      </div>
+
+      <h4>Eligibility rules (hard gates)</h4>
+      <div class="formula-box">
+<span class="fn">function</span> <span class="fs">isEligible</span>(course: <span class="fs">Course</span>, profile: <span class="fs">UserProfile</span>): <span class="fs">boolean</span> {
+  <span class="fc">// 1. Track compatibility</span>
+  <span class="k">if</span> (profile.track && course.track !== profile.track) {
+    <span class="k">if</span> (!<span class="fs">isCrossTrackAllowed</span>(profile.track, course.track, profile.waecGrades)) <span class="k">return false</span>;
+  }
+
+  <span class="fc">// 2. O'level requirements (ALL mandatory subjects must meet min grade)</span>
+  <span class="k">for</span> (<span class="k">const</span> req <span class="k">of</span> course.olevelRequirements) {
+    <span class="k">if</span> (req.isMandatory) {
+      <span class="k">const</span> userGrade = profile.waecGrades[req.subject];
+      <span class="k">const</span> altGrade = req.alternatives.<span class="fs">find</span>(alt => profile.waecGrades[alt]);
+      <span class="k">const</span> bestGrade = <span class="fs">Math.min</span>(userGrade ?? <span class="n">99</span>, altGrade ?? <span class="n">99</span>);
+      <span class="k">if</span> (bestGrade > req.minGrade) <span class="k">return false</span>; <span class="fc">// Lower number = better grade</span>
+    }
+  }
+
+  <span class="fc">// 3. English & Mathematics universal requirement</span>
+  <span class="k">if</span> ((profile.waecGrades.English ?? <span class="n">99</span>) > <span class="n">6</span>) <span class="k">return false</span>;
+  <span class="k">if</span> ((profile.waecGrades.Mathematics ?? <span class="n">99</span>) > <span class="n">6</span>) <span class="k">return false</span>;
+
+  <span class="fc">// 4. Accreditation</span>
+  <span class="k">if</span> (course.accreditationStatus === <span class="s">'denied'</span>) <span class="k">return false</span>;
+
+  <span class="k">return true</span>;
+}
+</div>
+
+      <h4>Match score components (0–100)</h4>
+      <div class="tw">
+        <table>
+          <thead><tr><th>Component</th><th>Weight</th><th>Calculation</th><th>Rationale</th></tr></thead>
+          <tbody>
+            <tr><td>O'level Grade Quality</td><td>25%</td><td>Average of relevant subject grades (normalised, better grades = higher score)</td><td>Stronger foundation = higher success probability</td></tr>
+            <tr><td>JAMB Score Proximity</td><td>30%</td><td>If JAMB provided: 1 - |userScore - predictedCutoff| / 400. If not provided: neutral (50)</td><td>Primary predictor of admission</td></tr>
+            <tr><td>University Preference</td><td>15%</td><td>+20 if in preferred list, +10 if same state, 0 otherwise</td><td>User intent matters</td></tr>
+            <tr><td>Catchment / ELDS Advantage</td><td>10%</td><td>+15 if catchment, +10 if ELDS, 0 otherwise</td><td>Real structural advantage</td></tr>
+            <tr><td>Career Alignment</td><td>10%</td><td>+15 if matches preferredCourses, +10 if related, 0 otherwise</td><td>Motivation & persistence</td></tr>
+            <tr><td>Course Competitiveness Penalty</td><td>10%</td><td>Negative weight for ultra-competitive courses (Medicine, Law) unless user score is very high</td><td>Prevents false hope</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>Tier classification logic</h4>
+      <div class="formula-box">
+<span class="fn">function</span> <span class="fs">classifyTier</span>(
+  userJamb: <span class="fs">number | null</span>,
+  predictedCutoff: <span class="fs">PredictedCutoff</span>,
+  isCatchment: <span class="fs">boolean</span>,
+  isELDS: <span class="fs">boolean</span>
+): <span class="fs">'match' | 'reach' | 'safety'</span> {
+  <span class="k">if</span> (!userJamb) <span class="k">return</span> <span class="s">'match'</span>; <span class="fc">// Default when no JAMB score</span>
+
+  <span class="k">const</span> effectiveCutoff = predictedCutoff.merit 
+    - (isCatchment ? <span class="n">20</span> : <span class="n">0</span>) 
+    - (isELDS ? <span class="n">30</span> : <span class="n">0</span>);
+
+  <span class="k">const</span> diff = userJamb - effectiveCutoff;
+
+  <span class="k">if</span> (diff >= <span class="n">30</span>) <span class="k">return</span> <span class="s">'safety'</span>;
+  <span class="k">if</span> (diff >= <span class="n">-10</span>) <span class="k">return</span> <span class="s">'match'</span>;
+  <span class="k">return</span> <span class="s">'reach'</span>;
+}
+</div>
+
+      <h4>Explainability — every recommendation shows why</h4>
+      <div class="callout co-good">
+        <span class="ic">✅</span>
+        <div class="bd">
+          <div class="ct">Transparent reasoning builds trust</div>
+          <ul>
+            <li><strong>Match:</strong> "Your WAEC grades meet all requirements. Your JAMB score of 265 is 15 points above the predicted cut-off of 250 for this course at UNILAG."</li>
+            <li><strong>Reach:</strong> "You meet O'level requirements. Your JAMB score of 210 is 25 points below the predicted cut-off of 235. Consider as a stretch option."</li>
+            <li><strong>Safety:</strong> "You exceed requirements comfortably. Your JAMB score of 280 is 50 points above the cut-off. Strong backup choice."</li>
+            <li><strong>Ineligible:</strong> "You need Physics at C6 or better (you have D7). Consider [related course] instead."</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="features">
+      <h3>12 · Core features & user flows</h3>
+      <p class="lede">MVP scope vs. future enhancements — prioritised by user value and build effort.</p>
+
+      <h4>MVP (Phase 1) — Must have</h4>
+      <div class="check">
+        <li>WAEC grade entry (manual dropdowns for 9 subjects)</li>
+        <li>Automatic track detection from grades</li>
+        <li>University preference selection (multi-select with search)</li>
+        <li>State of origin + ELDS detection</li>
+        <li>Optional JAMB score input</li>
+        <li>Eligibility filtering + match scoring</li>
+        <li>Results: Match / Reach / Safety tabs with course cards</li>
+        <li>Course detail modal: requirements, career paths, fees, similar courses</li>
+        <li>Shareable results link (no login required)</li>
+        <li>PDF export of recommendations</li>
+        <li>WhatsApp share button</li>
+        <li>Dark/light mode (brand system)</li>
+        <li>Fully responsive, PWA-capable, offline-first</li>
+      </div>
+
+      <h4>Phase 2 — High value</h4>
+      <div class="check">
+        <li>User accounts (save profiles, track applications)</li>
+        <li>JAMB score tracker (countdown to exam, practice integration)</li>
+        <li>Post-UTME calendar & reminders</li>
+        <li>Direct Entry pathway checker</li>
+        <li>JUPEB / Pre-degree programme finder</li>
+        <li>Scholarship matching (course + university + state)</li>
+        <li>Course comparison tool (side-by-side)</li>
+        <li>Parent/Guardian view (read-only summary link)</li>
+        <li>Email/SMS notifications for deadlines</li>
+      </div>
+
+      <h4>Phase 3 — Differentiation</h4>
+      <div class="check">
+        <li>WAEC result photo upload + OCR (Google Vision / Tesseract)</li>
+        <li>Predictive cut-off ML model (historical data → next year estimate)</li>
+        <li>Career outcome visualisation (salary ranges, employment rates, alumni paths)</li>
+        <li>University virtual tour links / campus info</li>
+        <li>Peer connect (anonymised "students like you chose…")</li>
+        <li>Counsellor/Teacher dashboard (bulk student management)</li>
+        <li>API for schools/NGOs to embed matching widget</li>
+        <li>Voice-guided flow (Hausa, Yoruba, Igbo, Pidgin)</li>
+      </div>
+
+      <h4>Key user flows (sequence)</h4>
+      <div class="step">
+        <div class="badge">1</div>
+        <div class="step-b">
+          <h4>First visit — No account</h4>
+          <p>Land on hero → "Start Free Check" → WAEC entry (progressive disclosure: 5 core subjects first, then "Add more") → Preferences → Results → "Save results" prompt → Account creation optional.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="badge">2</div>
+        <div class="step-b">
+          <h4>Returning user — With account</h4>
+          <p>Dashboard shows saved profile → "Update grades" or "Add JAMB score" → Re-run matching → History of past runs → Application tracker (deadlines, Post-UTME dates).</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="badge">3</div>
+        <div class="step-b">
+          <h4>Parent/Guardian view</h4>
+          <p>Student shares "Parent Link" → Read-only summary: child's track, top 5 matches, career outcomes, deadlines. No edit access. Expires in 30 days.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="tech">
+      <h3>13 · Technical architecture & stack decisions</h3>
+      <p class="lede">Choose boring technology that scales. The product is the data and the algorithm, not the framework.</p>
+
+      <h4>Stack decision matrix</h4>
+      <div class="tw">
+        <table>
+          <thead><tr><th>Layer</th><th>Choice</th><th>Rationale</th><th>Alternative Considered</th></tr></thead>
+          <tbody>
+            <tr><td>Frontend Framework</td><td><strong>React 18 + TypeScript + Vite</strong></td><td>Ecosystem, hiring, PWA support, SSR optional later</td><td>Next.js (overkill for SPA), Vue (team knows React)</td></tr>
+            <tr><td>Styling</td><td><strong>Tailwind CSS + Brand Tokens (CSS vars)</strong></td><td>Brand tokens map 1:1 to Tailwind; zero config; fast iteration</td><td>Plain CSS (slower), Styled Components (bundle size)</td></tr>
+            <tr><td>State Management</td><td><strong>Zustand + React Query (TanStack Query)</strong></td><td>Minimal boilerplate; server state separated from client state</td><td>Redux (verbose), Context (re-renders)</td></tr>
+            <tr><td>Backend / API</td><td><strong>Supabase (PostgreSQL + Auth + Edge Functions)</strong></td><td>Postgres for relational data; built-in auth; edge functions for matching logic; realtime for notifications</td><td>Firebase (NoSQL limits), Custom Node (ops burden)</td></tr>
+            <tr><td>Database</td><td><strong>PostgreSQL (via Supabase)</strong></td><td>JSONB for flexible course data; full-text search; materialised views for analytics</td><td>MongoDB (consistency), SQLite (scale)</td></tr>
+            <tr><td>Hosting</td><td><strong>Vercel (Frontend) + Supabase (Backend)</strong></td><td>Zero-config deploy; edge network; generous free tier; custom domains</td><td>Netlify (similar), AWS Amplify (complex)</td></tr>
+            <tr><td>OCR (Phase 2)</td><td><strong>Cloudflare Workers AI / Tesseract.js</strong></td><td>Edge OCR for privacy; fallback to client-side Tesseract</td><td>Google Vision (cost, privacy), AWS Textract (vendor lock-in)</td></tr>
+            <tr><td>Analytics</td><td><strong>Plausible / Umami (self-hosted)</strong></td><td>Privacy-friendly; no cookie banner needed; GDPR/NDPR compliant</td><td>Google Analytics (privacy), Mixpanel (cost)</td></tr>
+            <tr><td>Error Tracking</td><td><strong>Sentry (free tier)</strong></td><td>Source maps; release tracking; performance monitoring</td><td>LogRocket (cost), self-hosted (ops)</td></tr>
+            <tr><td>CI/CD</td><td><strong>GitHub Actions</strong></td><td>Free for public; matrix builds; Vercel/Supabase integration</td><td>GitLab CI, CircleCI</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>Database schema (core tables)</h4>
+      <div class="formula-box">
+<span class="fc">-- Supabase / PostgreSQL</span>
+<span class="fn">CREATE TABLE</span> universities (
+  <span class="n">id</span> <span class="fs">TEXT PRIMARY KEY</span>, <span class="fc">-- e.g. 'UNILAG'</span>
+  <span class="n">name</span> <span class="fs">TEXT NOT NULL</span>,
+  <span class="n">type</span> <span class="fs">TEXT NOT NULL</span>, <span class="fc">-- 'federal' | 'state' | 'private'</span>
+  <span class="n">state</span> <span class="fs">TEXT NOT NULL</span>,
+  <span class="n">catchment_states</span> <span class="fs">TEXT[]</span>,
+  <span class="n">is_elds</span> <span class="fs">BOOLEAN DEFAULT FALSE</span>,
+  <span class="n">website</span> <span class="fs">TEXT</span>,
+  <span class="n">created_at</span> <span class="fs">TIMESTAMPTZ DEFAULT NOW()</span>
+);
+
+<span class="fn">CREATE TABLE</span> courses (
+  <span class="n">id</span> <span class="fs">TEXT PRIMARY KEY</span>, <span class="fc">-- 'MED-SUR-UNILAG'</span>
+  <span class="n">university_id</span> <span class="fs">TEXT REFERENCES</span> universities(id),
+  <span class="n">name</span> <span class="fs">TEXT NOT NULL</span>,
+  <span class="n">faculty</span> <span class="fs">TEXT</span>,
+  <span class="n">track</span> <span class="fs">TEXT NOT NULL</span>, <span class="fc">-- 'science' | 'commercial' | 'arts'</span>
+  <span class="n">duration_years</span> <span class="fs">INTEGER</span>,
+  <span class="n">utme_subjects</span> <span class="fs">TEXT[]</span>,
+  <span class="n">olevel_requirements</span> <span class="fs">JSONB NOT NULL</span>, <span class="fc">-- [{subject, minGrade, isMandatory, alternatives[]}]</span>
+  <span class="n">cutoff_history</span> <span class="fs">JSONB</span>, <span class="fc">-- [{year, merit, catchment, elds, source}]</span>
+  <span class="n">predicted_cutoff</span> <span class="fs">JSONB</span>, <span class="fc">-- {merit, confidence, predictionDate, modelVersion}</span>
+  <span class="n">post_utme_type</span> <span class="fs">TEXT</span>,
+  <span class="n">post_utme_weight</span> <span class="fs">NUMERIC(3,2)</span>,
+  <span class="n">career_paths</span> <span class="fs">JSONB</span>,
+  <span class="n">related_course_ids</span> <span class="fs">TEXT[]</span>,
+  <span class="n">accreditation_status</span> <span class="fs">TEXT</span>,
+  <span class="n">fees</span> <span class="fs">JSONB</span>,
+  <span class="n">session</span> <span class="fs">TEXT NOT NULL</span>, <span class="fc">-- '2026/2027'</span>
+  <span class="n">source</span> <span class="fs">TEXT</span>, <span class="fc">-- 'IBASS', 'UNIV_WEB', 'USER_REPORT', 'DERIVED'</span>
+  <span class="n">last_verified</span> <span class="fs">TIMESTAMPTZ</span>,
+  <span class="n">created_at</span> <span class="fs">TIMESTAMPTZ DEFAULT NOW()</span>
+);
+
+<span class="fn">CREATE INDEX</span> <span class="n">idx_courses_track_session</span> <span class="fn">ON</span> courses(track, session);
+<span class="fn">CREATE INDEX</span> <span class="n">idx_courses_university</span> <span class="fn">ON</span> courses(university_id);
+</div>
+
+      <h4>Matching engine deployment</h4>
+      <div class="callout co-info">
+        <span class="ic">⚙️</span>
+        <div class="bd">
+          <div class="ct">Edge function for low latency</div>
+          <p>
+            Deploy the matching algorithm as a <strong>Supabase Edge Function (Deno)</strong> or <strong>Vercel Edge Function</strong>.
+            Input: UserProfile. Output: Ranked Course[] with scores, tiers, explanations.
+            Benefits: <strong>Sub-100ms globally</strong>, no cold-start for users, easy to A/B test algorithm versions,
+            can be called from client directly (no backend server to manage).
+          </p>
+        </div>
+      </div>
+
+      <h4>Data ingestion pipeline</h4>
+      <div class="flow">
+        <div class="fnode"><span class="fi">📥</span><span class="ft">Sources</span><span class="fs">IBASS CSV/PDF, Univ. websites, JAMB PDFs, NUC lists</span></div>
+        <div class="farrow">▼</div>
+        <div class="fnode"><span class="fi">🔧</span><span class="ft">ETL Scripts (Python/Node)</span><span class="fs">Parse, normalise, validate, deduplicate</span></div>
+        <div class="farrow">▼</div>
+        <div class="fnode"><span class="fi">✅</span><span class="ft">Review Queue (Admin UI)</span><span class="fs">Human verification for new/changed records</span></div>
+        <div class="farrow">▼</div>
+        <div class="fnode"><span class="fi">💾</span><span class="ft">Staging Table</span><span class="fs">Versioned by session; diff against production</span></div>
+        <div class="farrow">▼</div>
+        <div class="fnode hi"><span class="fi">🚀</span><span class="ft">Promote to Production</span><span class="fs">Atomic swap via session column; zero downtime</span></div>
+      </div>
+    </section>
+
+    <!-- ================= PART IV ================= -->
+    <h2 style="margin-top:52px"><span class="num">IV</span> Design & Experience</h2>
+
+    <section id="ux">
+      <h3>14 · UX principles & accessibility</h3>
+      <p class="lede">The brand system already encodes most of this. Here are the product-specific applications.</p>
+
+      <h4>Core UX principles</h4>
+      <div class="grid2">
+        <div class="card">
+          <div class="card-t"><span>1</span> <strong>Zero-friction entry</strong></div>
+          <p style="font-size:13.5px;color:var(--text-2)">No login to start. Progressive disclosure: 5 core subjects first, "Add more" for others. Smart defaults (track auto-detected).</p>
+        </div>
+        <div class="card">
+          <div class="card-t"><span>2</span> <strong>Honest, not optimistic</strong></div>
+          <p style="font-size:13.5px;color:var(--text-2)">Show "Reach" tiers clearly. Explain <em>why</em> a course is a reach. Never hide competition. "This course typically needs 280+ JAMB."</p>
+        </div>
+        <div class="card">
+          <div class="card-t"><span>3</span> <strong>Mobile-first, data-light</strong></div>
+          <p style="font-size:13.5px;color:var(--text-2)">Target <100KB initial JS. Works on 2G/3G. Offline-capable (cached course data). Touch targets ≥ 48px.</p>
+        </div>
+        <div class="card">
+          <div class="card-t"><span>4</span> <strong>Explainability > Black box</strong></div>
+          <p style="font-size:13.5px;color:var(--text-2)">Every recommendation shows the calculation. "You meet O'level reqs. JAMB 210 vs predicted 235 = Reach."</p>
+        </div>
+        <div class="card">
+          <div class="card-t"><span>5</span> <strong>Action-oriented results</strong></div>
+          <p style="font-size:13.5px;color:var(--text-2)">Each course card has next steps: "Check Post-UTME date", "Download past questions", "Compare with similar course".</p>
+        </div>
+        <div class="card">
+          <div class="card-t"><span>6</span> <strong>Inclusive language</strong></div>
+          <p style="font-size:13.5px;color:var(--text-2)">Pidgin option. "You fit study this course" not "You are eligible." Avoid academic jargon.</p>
+        </div>
+      </div>
+
+      <h4>Accessibility checklist (beyond brand baseline)</h4>
+      <div class="check">
+        <li>WAEC grade inputs: native <code><select></code> with <code><option></code> — screen reader friendly</li>
+        <li>Results announced via <code>aria-live="polite"</code> when matching completes</li>
+        <li>Tier badges (Match/Reach/Safety) use <strong>icon + text + colour</strong> — never colour alone</li>
+        <li>Course cards: heading structure (h3) for screen reader navigation</li>
+        <li>PDF export: tagged PDF with proper heading structure</li>
+        <li>Colour contrast verified for all tier colours on both themes</li>
+        <li>Focus trap in course detail modal; ESC to close</li>
+        <li>Reduced motion respected — no auto-scrolling, instant tier transitions</li>
+      </div>
+    </section>
+
+    <section id="branding">
+      <h3>15 · Brand application for Career Compass</h3>
+      <p class="lede">Career Compass is a product under Dammie Optimus Solutions. It uses the brand system with product-specific adaptations.</p>
+
+      <h4>Brand hierarchy</h4>
+      <div class="flow">
+        <div class="fnode hi"><span class="fi">Dammie Optimus Solutions</span><span class="ft">Parent brand — Software Engineering</span></div>
+        <div class="farrow">▼</div>
+        <div class="fnode"><span class="fi">Nigerian Career Compass</span><span class="ft">Product brand — Career Guidance Platform</span></div>
+        <div class="farrow">▼</div>
+        <div class="fnode"><span class="fi">Features</span><span class="fs">WAEC Matcher, JAMB Predictor, Course Explorer, Scholarship Finder</span></div>
+      </div>
+
+      <h4>Product-specific tokens (extensions)</h4>
+      <div class="formula-box">
+<span class="fc">/* Additional semantic tokens for Career Compass — add to :root */</span>
+:root {
+  <span class="fc">/* Tier colours — use ink variants for text, base for backgrounds */</span>
+  --tier-match: #10b981;        <span class="fc">/* emerald-500 */</span>
+  --tier-match-ink: #34d399;    <span class="fc">/* emerald-400 */</span>
+  --tier-match-bg: color-mix(in srgb, var(--emerald) 10%, transparent);
+  
+  --tier-reach: #f59e0b;        <span class="fc">/* amber-500 */</span>
+  --tier-reach-ink: #fbbf24;    <span class="fc">/* amber-400 */</span>
+  --tier-reach-bg: color-mix(in srgb, var(--amber) 10%, transparent);
+  
+  --tier-safety: #06b6d4;       <span class="fc">/* cyan-500 */</span>
+  --tier-safety-ink: #22d3ee;   <span class="fc">/* cyan-400 */</span>
+  --tier-safety-bg: color-mix(in srgb, var(--cyan) 10%, transparent);
+  
+  <span class="fc">/* Track accent colours */</span>
+  --track-science: #06b6d4;     <span class="fc">/* cyan */</span>
+  --track-commercial: #f59e0b;  <span class="fc">/* amber */</span>
+  --track-arts: #f43f5e;        <span class="fc">/* rose */</span>
+  
+  <span class="fc">/* Track ink variants for text on track backgrounds */</span>
+  --track-science-ink: #22d3ee;
+  --track-commercial-ink: #fbbf24;
+  --track-arts-ink: #fb7185;
+}
+</div>
+
+      <h4>Logo lockup for Career Compass</h4>
+      <div class="demo">
+        <div class="demo-row" style="align-items:center;gap:24px">
+          <div style="background:var(--bg);padding:16px;border-radius:12px;border:1.5px solid var(--border);display:flex;align-items:center;gap:12px">
+            <svg width="36" height="27" viewBox="0 0 160 120" fill="none" aria-label="Dammie Optimus Monogram">
+              <g stroke="url(#dosGrad)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M 30 25 L 30 95" /><path d="M 30 25 L 60 25 A 35 35 0 0 1 60 95 L 30 95" />
+                <circle cx="100" cy="60" r="35" />
+              </g>
+              <circle cx="100" cy="60" r="10" fill="url(#dosGrad)" />
+            </svg>
+            <div style="display:flex;flex-direction:column;line-height:1.1">
+              <div style="font-weight:800;font-size:16px;letter-spacing:-.02em;color:var(--text)">Career Compass</div>
+              <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.15em;color:var(--cyan-ink)">Nigeria</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h4>Colour usage rules for product</h4>
+      <ul>
+        <li><strong>Emerald gradient</strong> — Primary CTA only: "Start Free Check", "Run Matching", "Save Results". Max 2 per screen.</li>
+        <li><strong>Emerald ink</strong> — Match tier, Science track, success states, positive numbers.</li>
+        <li><strong>Amber ink</strong> — Reach tier, Commercial track, warnings, deadlines approaching.</li>
+        <li><strong>Cyan ink</strong> — Safety tier, Science track accent, links, secondary actions.</li>
+        <li><strong>Rose ink</strong> — Arts track, ineligible states, errors, destructive actions.</li>
+        <li><strong>Never</strong> use base emerald/amber/cyan/rose for text — always use ink variants.</li>
+      </ul>
+    </section>
+
+    <section id="ui">
+      <h3>16 · Key screens & component patterns</h3>
+      <p class="lede">Wireframe-level descriptions for the build team.</p>
+
+      <h4>Screen 1: Landing / Hero</h4>
+      <div class="decision-box">
+        <div class="db-title">Layout</div>
+        <div class="db-body">
+          <strong>Header:</strong> Dammie Optimus logo + "Career Compass" wordmark + Theme toggle + "All Documents" link.<br>
+          <strong>Hero:</strong> "Find your university course in 60 seconds" (Display role). Subtitle: "Enter your WAEC results. Get matched to courses you can actually get into." (Body role).<br>
+          <strong>Primary CTA:</strong> "Start Free Check" (btn-primary, emerald gradient).<br>
+          <strong>Trust signals:</strong> "Based on official JAMB & WAEC data" | "170+ universities" | "Free, no login required" (chips).<br>
+          <strong>Footer:</strong> Quick links to methodology, data sources, privacy.
+        </div>
+      </div>
+
+      <h4>Screen 2: WAEC Entry (Progressive)</h4>
+      <div class="decision-box">
+        <div class="db-title">Layout</div>
+        <div class="db-body">
+          <strong>Step indicator:</strong> 1. WAEC → 2. Preferences → 3. Results (pill steps).<br>
+          <strong>Core 5 subjects (always shown):</strong> English, Mathematics, + 3 track-detected subjects.<br>
+          <strong>Each subject:</strong> Label + Select (A1–F9) + "Not taken" option. Validation: English & Math required.<br>
+          <strong>"Add more subjects" button:</strong> Expands to show all 20+ WAEC subjects.<br>
+          <strong>Track badge:</strong> "Detected: Science" (track-science pill) with "Change" link.<br>
+          <strong>Navigation:</strong> "Back" (ghost) + "Continue" (primary, disabled until Eng+Math filled).
+        </div>
+      </div>
+
+      <h4>Screen 3: Preferences</h4>
+      <div class="decision-box">
+        <div class="db-title">Layout</div>
+        <div class="db-body">
+          <strong>University selector:</strong> Searchable multi-select (combobox). Shows uni name, type, state. "Select all federal" shortcut.<br>
+          <strong>State of origin:</strong> Single select (37 options including FCT). Auto-detects ELDS.<br>
+          <strong>JAMB score (optional):</strong> Number input (100–400) with "I haven't taken JAMB yet" checkbox.<br>
+          <strong>Preferred courses (optional):</strong> Tag input — type to search course names.<br>
+          <strong>Navigation:</strong> "Back" + "Find My Courses" (primary).
+        </div>
+      </div>
+
+      <h4>Screen 4: Results — Tiered List</h4>
+      <div class="decision-box">
+        <div class="db-title">Layout</div>
+        <div class="db-body">
+          <strong>Summary bar:</strong> "42 courses match your profile" + 3 tier tabs: Match (12) | Reach (18) | Safety (12).<br>
+          <strong>Tab panels:</strong> Vertical list of course cards. Sticky tab bar on scroll.<br>
+          <strong>Course card:</strong>
+          <ul style="margin:8px 0 0 20px;font-size:13.5px;color:var(--text-2)">
+            <li>Tier badge (Match/Reach/Safety) — coloured pill with icon</li>
+            <li>Course name + University (bold)</li>
+            <li>Faculty + Duration (meta)</li>
+            <li>Match score ring (SVG, 0–100)</li>
+            <li>One-line explanation: "Your JAMB 265 vs predicted 250. Catchment advantage."</li>
+            <li>Actions: "View Details" (primary) | "Compare" (ghost) | "Save" (icon)</li>
+          </ul>
+          <strong>Empty state:</strong> "No matches found. Try: adding more universities, checking JAMB score, or exploring [related track] courses."
+        </div>
+      </div>
+
+      <h4>Screen 5: Course Detail Modal</h4>
+      <div class="decision-box">
+        <div class="db-title">Layout</div>
+        <div class="db-body">
+          <strong>Header:</strong> Course + University | Tier badge | Close.<br>
+          <strong>Tabs:</strong> Requirements | Career Paths | Fees & Info | Similar Courses.<br>
+          <strong>Requirements tab:</strong> O'level table (Subject | Min Grade | Your Grade | Status ✅/❌) + UTME subjects + Predicted cut-off (Merit/Catchment/ELDS) + Post-UTME type.<br>
+          <strong>Career Paths:</strong> Visual pathway: "Graduate → NYSC → Entry roles (₦X–Y/mo) → Mid-level (₦X–Y) → Senior (₦X–Y)". Professional bodies (ICAN, COREN, NMA, NBA).<br>
+          <strong>Similar Courses:</strong> Horizontal scroll of mini-cards (course + uni + tier).<br>
+          <strong>Footer actions:</strong> "Download PDF" | "Share WhatsApp" | "Add to Comparison" | "Start Application" (links to uni portal).
+        </div>
+      </div>
+
+      <h4>Screen 6: Dashboard (Logged In)</h4>
+      <div class="decision-box">
+        <div class="db-title">Layout</div>
+        <div class="db-body">
+          <strong>Profile card:</strong> Track, WAEC summary, JAMB score, State, Preferred Unis.<br>
+          <strong>Quick actions:</strong> "Re-run Matching" | "Update Grades" | "Add JAMB Score".<br>
+          <strong>History:</strong> Timeline of past matching runs with date, tier counts, top match.<br>
+          <strong>Application Tracker:</strong> Cards for each saved course: Deadline, Post-UTME date, Status (Not Applied / Applied / Awaiting Result / Admitted), "Open Portal" link.<br>
+          <strong>Notifications:</strong> Bell icon with deadline reminders, cut-off updates.
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PART V ================= -->
+    <h2 style="margin-top:52px"><span class="num">V</span> Build Plan</h2>
+
+    <section id="phases">
+      <h3>17 · Phased development roadmap</h3>
+      <p class="lede">Three phases, each shippable. Phase 1 = MVP that solves the core problem.</p>
+
+      <h4>Phase 1 — MVP: "The Matcher" (Weeks 1–8)</h4>
+      <div class="phase-badge phase-1">Phase 1</div>
+      <div class="days">
+        <div class="day d1"><div class="dn">Weeks 1–2</div><div class="dv">Foundation</div><div class="dd">Repo, CI/CD, Supabase, Brand tokens, Auth, Landing page</div></div>
+        <div class="day d2"><div class="dn">Weeks 3–4</div><div class="dv">Data Ingestion</div><div class="dd">IBASS parsing, course/university seed, admin review UI</div></div>
+        <div class="day d3"><div class="dn">Weeks 5–6</div><div class="dv">Matching Engine</div><div class="dd">Eligibility filter, scoring, tiering, edge function, tests</div></div>
+        <div class="day d4"><div class="dn">Weeks 7–8</div><div class="dv">Frontend Flow</div><div class="dd">WAEC entry, preferences, results, course detail, PDF export, PWA</div></div>
+      </div>
+
+      <div class="callout co-good">
+        <span class="ic">🎯</span>
+        <div class="bd">
+          <div class="ct">Phase 1 Definition of Done</div>
+          <ul>
+            <li>User enters WAEC grades → gets tiered course list in <3 seconds</li>
+            <li>Results explain <em>why</em> (O'level met, JAMB proximity, catchment)</li>
+            <li>Course detail shows requirements, career paths, similar courses</li>
+            <li>Shareable link + PDF export works</li>
+            <li>Works offline (cached course data) on mobile</li>
+            <li>Dark/light mode, accessibility baseline met</li>
+            <li>Deployed on custom domain (careercompass.ng or similar)</li>
+          </ul>
+        </div>
+      </div>
+
+      <h4>Phase 2 — "The Companion" (Weeks 9–16)</h4>
+      <div class="phase-badge phase-2">Phase 2</div>
+      <div class="days">
+        <div class="day d1"><div class="dn">Weeks 9–10</div><div class="dv">Accounts & Persistence</div><div class="dd">Supabase Auth, profile save, history, dashboard</div></div>
+        <div class="day d2"><div class="dn">Weeks 11–12</div><div class="dv">Application Tracker</div><div class="dd">Deadlines, Post-UTME calendar, notifications, status tracking</div></div>
+        <div class="day d3"><div class="dn">Weeks 13–14</div><div class="dv">Extended Pathways</div><div class="dd">Direct Entry checker, JUPEB/Pre-degree finder, Scholarship matching</div></div>
+        <div class="day d4"><div class="dn">Weeks 15–16</div><div class="dv">Polish & Scale</div><div class="dd">Course comparison, parent view, email/SMS reminders, analytics</div></div>
+      </div>
+
+      <h4>Phase 3 — "The Platform" (Weeks 17–28+)</h4>
+      <div class="phase-badge phase-3">Phase 3</div>
+      <div class="days">
+        <div class="day d1"><div class="dn">Weeks 17–20</div><div class="dv">Intelligence</div><div class="dd">OCR for WAEC upload, ML cut-off prediction, peer insights</div></div>
+        <div class="day d2"><div class="dn">Weeks 21–24</div><div class="dv">Content & Community</div><div class="dd">Career outcome visualisation, alumni paths, counsellor dashboard</div></div>
+        <div class="day d3"><div class="dn">Weeks 25–28</div><div class="dv">Distribution</div><div class="dd">Embeddable widget, API, voice-guided flow (4 languages), school partnerships</div></div>
+      </div>
+    </section>
+
+    <section id="milestones">
+      <h3>18 · Milestones, deliverables & success metrics</h3>
+      <p class="lede">What "done" looks like at each gate.</p>
+
+      <h4>Milestone gates</h4>
+      <div class="tw">
+        <table>
+          <thead><tr><th>Milestone</th><th>Target</th><th>Deliverable</th><th>Go/No-Go Criteria</th></tr></thead>
+          <tbody>
+            <tr><td>M1: Foundation Ready</td><td>Week 2</td><td>Deployed landing page, auth, CI/CD, brand system</td><td>Landing loads <2s; auth works; dark/light toggle persists</td></tr>
+            <tr><td>M2: Data Seeded</td><td>Week 4</td><td>>150 universities, >3000 courses in DB for 2026/2027 session</td><td>Admin UI shows 0 critical validation errors; search works</td></tr>
+            <tr><td>M3: Engine Live</td><td>Week 6</td><td>Edge function returns ranked results <100ms p95</td><td>Unit tests pass; 10 manual test profiles return sensible tiers</td></tr>
+            <tr><td>M4: MVP Launch</td><td>Week 8</td><td>Public URL, full flow working, PWA installable</td><td>End-to-end test passes; Lighthouse >90; 5 beta users complete flow</td></tr>
+            <tr><td>M5: Phase 2 Launch</td><td>Week 16</td><td>Accounts, tracker, pathways, notifications</td><td>100+ registered users; >50% return within 7 days</td></tr>
+            <tr><td>M6: Phase 3 Launch</td><td>Week 28</td><td>OCR, ML predictions, widget, voice flow</td><td>OCR accuracy >90%; prediction MAE <15 points; 10+ widget embeds</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>Success metrics (North Star + Guardrails)</h4>
+      <div class="grid3">
+        <div class="metric-card">
+          <div class="metric-value">Match Rate</div>
+          <div class="metric-label">% users with ≥1 Match tier course</div>
+          <div class="metric-sub">Target: >85%</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value">Completion Rate</div>
+          <div class="metric-label">% sessions reaching Results screen</div>
+          <div class="metric-sub">Target: >60%</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value">Return Rate (7d)</div>
+          <div class="metric-label">% users returning within a week</div>
+          <div class="metric-sub">Target: >30%</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value">Share Rate</div>
+          <div class="metric-label">% results shared via WhatsApp/Link</div>
+          <div class="metric-sub">Target: >20%</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value">Prediction Accuracy</div>
+          <div class="metric-label">MAE vs actual cut-offs (Phase 3)</div>
+          <div class="metric-sub">Target: <15 points</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value">OCR Accuracy</div>
+          <div class="metric-label">Grade extraction correctness (Phase 3)</div>
+          <div class="metric-sub">Target: >90%</div>
+        </div>
+      </div>
+
+      <h4>Guardrail metrics (must not regress)</h4>
+      <div class="check">
+        <li>Page load (LCP) < 2.5s on 3G</li>
+        <li>JS bundle < 100KB gzipped (initial)</li>
+        <li>Zero critical accessibility violations (axe-core)</li>
+        <li>Error rate < 0.1% (Sentry)</li>
+        <li>Supabase costs < $50/month until 10k MAU</li>
+      </div>
+    </section>
+
+    <section id="risks">
+      <h3>19 · Risks, assumptions & mitigation</h3>
+      <p class="lede">Honest assessment of what could derail the project.</p>
+
+      <div class="risk-item">
+        <div class="risk-badge">1</div>
+        <div class="risk-text">
+          <strong>Data access risk:</strong> JAMB IBASS has no public API; scraping may break or be blocked.
+          <br><span style="color:var(--text-3)">Mitigation:</span> Build resilient scraper with fallback to manual CSV import. Maintain admin review queue. Budget for quarterly manual refresh. Cultivate contact at JAMB for official data partnership.
+        </div>
+      </div>
+      <div class="risk-item">
+        <div class="risk-badge">2</div>
+        <div class="risk-text">
+          <strong>Cut-off volatility:</strong> University cut-offs change yearly and are often published late (Sept–Nov).
+          <br><span style="color:var(--text-3)">Mitigation:</strong> Use historical trends + JAMB minimums for early predictions. Clearly label predictions with confidence. Update within 48h of official release. Show "Last updated" timestamps prominently.
+        </div>
+      </div>
+      <div class="risk-item">
+        <div class="risk-badge">3</div>
+        <div class="risk-text">
+          <strong>University website inconsistency:</strong> 170+ sites, different formats, some down during admission season.
+          <br><span style="color:var(--text-3)">Mitigation:</strong> Prioritise top 50 universities (cover 80%+ of admissions). Use multiple sources (JAMB CAPS lists, news reports, student submissions). Build "report incorrect data" feature.
+        </div>
+      </div>
+      <div class="risk-item">
+        <div class="risk-badge">4</div>
+        <div class="risk-text">
+          <strong>User trust:</strong> Students/parents may not trust an algorithm over "uncle who works in admissions".
+          <br><span style="color:var(--text-3)">Mitigation:</strong> Radical transparency: show exact calculation. Cite sources on every data point. "Verified by JAMB brochure 2026" badges. Partner with 3–5 reputable secondary schools for pilot endorsement.
+        </div>
+      </div>
+      <div class="risk-item">
+        <div class="risk-badge">5</div>
+        <div class="risk-text">
+          <strong>Monetisation pressure:</strong> Pressure to add ads, premium tiers, or sell data before product-market fit.
+          <br><span style="color:var(--text-3)">Mitigation:</strong> Commit to free core matcher forever. Monetise only Phase 3+ features (counsellor dashboard, school API, premium career content). Document this in README.
+        </div>
+      </div>
+      <div class="risk-item">
+        <div class="risk-badge">6</div>
+        <div class="risk-text">
+          <strong>Regulatory / NDPR:</strong> Handling minors' data (most users <18), education records.
+          <br><span style="color:var(--text-3)">Mitigation:</strong> No PII required for MVP (no email for anonymous use). Age gate: "I am 16+" checkbox. NDPR-compliant privacy policy. Data minimisation: store only grades + preferences. Supabase EU region (GDPR baseline).
+        </div>
+      </div>
+      <div class="risk-item">
+        <div class="risk-badge">7</div>
+        <div class="risk-text">
+          <strong>Competitive response:</strong> Myschool.ng or JAMB could launch matching feature.
+          <br><span style="color:var(--text-3)">Mitigation:</strong> Speed: MVP in 8 weeks. Depth: catchment/ELDS, career pathways, explainability — hard to replicate quickly. Community: build school partnerships early. Brand: Dammie Optimus credibility in software engineering.
+        </div>
+      </div>
+      <div class="risk-item">
+        <div class="risk-badge">8</div>
+        <div class="risk-text">
+          <strong>Single-founder bus factor:</strong> All knowledge in one head.
+          <br><span style="color:var(--text-3)">Mitigation:</strong> This document + inline code comments + architecture decision records (ADRs) in repo. Supabase schema documented. Data pipeline scripts standalone. Hire contractor for Phase 2 if needed.
+        </div>
+      </div>
+
+      <h4>Key assumptions</h4>
+      <div class="check">
+        <li>JAMB minimum scores (150/100) remain stable for 2026–2028</li>
+        <li>WAEC grading scale (A1–F9) remains unchanged</li>
+        <li>Smartphone + data access sufficient for target users (validated by Myschool.ng traffic)</li>
+        <li>Supabase free tier covers Phase 1–2 (500MB DB, 2GB bandwidth, 50k MAU)</li>
+        <li>Custom domain (.ng or .com.ng) available and affordable (~₦15k/year)</li>
+        <li>No major policy change (e.g., scrapping JAMB, changing O'level requirements)</li>
+      </div>
+    </section>
+
+    <section id="budget">
+      <h3>20 · Resource & budget estimates</h3>
+      <p class="lede">Lean, founder-led. Costs in USD (infrastructure) and weeks (time).</p>
+
+      <h4>Infrastructure costs (monthly, at scale)</h4>
+      <div class="tw">
+        <table>
+          <thead><tr><th>Service</th><th>Phase 1</th><th>Phase 2</th><th>Phase 3 (10k MAU)</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Vercel (Frontend)</td><td>$0 (Hobby)</td><td>$0 (Hobby)</td><td>$20 (Pro)</td><td>Edge functions included</td></tr>
+            <tr><td>Supabase (Backend)</td><td>$0 (Free)</td><td>$0 (Free)</td><td>$25 (Pro)</td><td>8GB DB, 250GB bandwidth</td></tr>
+            <tr><td>Domain (.ng)</td><td>$15/yr</td><td>$15/yr</td><td>$15/yr</td><td>NiRA registrar</td></tr>
+            <tr><td>Sentry</td><td>$0 (Free)</td><td>$0 (Free)</td><td>$26 (Team)</td><td>5k errors/mo free</td></tr>
+            <tr><td>Plausible Analytics</td><td>$0 (Self-hosted)</td><td>$0 (Self-hosted)</td><td>$9 (Cloud)</td><td>Or Umami on Supabase</td></tr>
+            <tr><td>OCR (Cloudflare AI)</td><td>—</td><td>—</td><td>$5–15</td><td>Per 1k requests</td></tr>
+            <tr><td><strong>Total/Month</strong></td><td><strong>$0</strong></td><td><strong>$0</strong></td><td><strong>~$75</strong></td><td><strong>Very low until revenue</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>Time investment (founder)</h4>
+      <div class="tw">
+        <table>
+          <thead><tr><th>Phase</th><th>Weeks</th><th>Hours/Week</th><th>Total Hours</th><th>Focus</th></tr></thead>
+          <tbody>
+            <tr><td>Phase 1 (MVP)</td><td>8</td><td>25–30</td><td>200–240</td><td>Core product, data, deploy</td></tr>
+            <tr><td>Phase 2</td><td>8</td><td>20–25</td><td>160–200</td><td>Accounts, tracker, pathways</td></tr>
+            <tr><td>Phase 3</td><td>12</td><td>15–20</td><td>180–240</td><td>ML, OCR, distribution</td></tr>
+            <tr><td><strong>Total</strong></td><td><strong>28</strong></td><td><strong>—</strong></td><td><strong>540–680</strong></td><td><strong>~7 months part-time</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>Optional contractor budget (if needed)</h4>
+      <div class="check">
+        <li>Data entry / verification (Phase 1): ~₦200k–300k for 2 weeks (2 people)</li>
+        <li>UI/UX audit (pre-launch): ~₦150k–250k (1 week)</li>
+        <li>ML engineer (Phase 3, cut-off prediction): ~₦500k–800k (4 weeks)</li>
+        <li>Content writer (career pathways): ~₦100k–150k (2 weeks)</li>
+      </div>
+
+      <div class="callout co-info">
+        <span class="ic">💡</span>
+        <div class="bd">
+          <div class="ct">Revenue ideas (post-PMF)</div>
+          <ul>
+            <li><strong>School/NGO API:</strong> ₦50k–200k/month per institution for bulk student matching</li>
+            <li><strong>Counsellor Dashboard:</strong> ₦10k–25k/month per counsellor</li>
+            <li><strong>Premium Career Content:</strong> ₦2k–5k one-time for detailed career guides</li>
+            <li><strong>University Partnerships:</strong> Featured placement in "Recommended for you" (ethical, labelled)</li>
+            <li><strong>White-label:</strong> License engine to ed-tech platforms</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PART VI ================= -->
+    <h2 style="margin-top:52px"><span class="num">VI</span> Appendices</h2>
+
+    <section id="glossary">
+      <h3>21 · Glossary</h3>
+      <div class="gloss">
+        <div class="gitem"><div class="gterm">WAEC</div><div class="gdef">West African Examinations Council. Conducts WASSCE (West African Senior School Certificate Examination).</div></div>
+        <div class="gitem"><div class="gterm">WASSCE</div><div class="gdef">The actual exam taken by SS3 students. Results graded A1–F9.</div></div>
+        <div class="gitem"><div class="gterm">NECO</div><div class="gdef">National Examinations Council. Alternative to WAEC, widely accepted.</div></div>
+        <div class="gitem"><div class="gterm">JAMB</div><div class="gdef">Joint Admissions and Matriculation Board. Conducts UTME.</div></div>
+        <div class="gitem"><div class="gterm">UTME</div><div class="gdef">Unified Tertiary Matriculation Examination. JAMB's entrance exam.</div></div>
+        <div class="gitem"><div class="gterm">Post-UTME</div><div class="gdef">University-specific screening after JAMB (CBT test or O'level screening).</div></div>
+        <div class="gitem"><div class="gterm">CAPS</div><div class="gdef">Central Admissions Processing System. JAMB's automated admission platform.</div></div>
+        <div class="gitem"><div class="gterm">IBASS</div><div class="gdef">Integrated Brochure & Syllabus System. JAMB's official course database.</div></div>
+        <div class="gitem"><div class="gterm">O'Level</div><div class="gdef">Ordinary Level — WAEC/NECO/NABTEB results. "5 credits" = 5 subjects at C6 or better.</div></div>
+        <div class="gitem"><div class="gterm">A'Level</div><div class="gdef">Advanced Level — IJMB, JUPEB, Cambridge A'Levels. For Direct Entry.</div></div>
+        <div class="gitem"><div class="gterm">Direct Entry (DE)</div><div class="gdef">Admission pathway for A'Level/ND/NCE holders. Enter at 200/300 level.</div></div>
+        <div class="gitem"><div class="gterm">JUPEB</div><div class="gdef">Joint Universities Preliminary Examinations Board. One-year A'Level programme.</div></div>
+        <div class="gitem"><div class="gterm">Catchment</div><div class="gdef">States geographically linked to a federal university. 35% quota allocation.</div></div>
+        <div class="gitem"><div class="gterm">ELDS</div><div class="gdef">Educationally Less Developed States. 20% quota; lower cut-offs.</div></div>
+        <div class="gitem"><div class="gterm">Merit</div><div class="gdef">45% of slots. Pure competition regardless of state.</div></div>
+        <div class="gitem"><div class="gterm">NUC</div><div class="gdef">National Universities Commission. Regulates universities, accredits programmes.</div></div>
+        <div class="gitem"><div class="gterm">NDPR</div><div class="gdef">Nigeria Data Protection Regulation. Local data privacy law.</div></div>
+        <div class="gitem"><div class="gterm">SS3</div><div class="gdef">Senior Secondary 3 — final year of secondary school (Grade 12 equivalent).</div></div>
+      </div>
+    </section>
+
+    <section id="sources">
+      <h3>22 · Sources & references</h3>
+      <p class="lede">Primary sources consulted during research (November 2026).</p>
+
+      <div class="doclinks">
+        <a class="doclink" href="https://www.waeconline.org.ng" target="_blank" rel="noopener">
+          <div class="dt">WAEC Official Website</div>
+          <div class="dd">Grading system, subjects, services</div>
+        </a>
+        <a class="doclink" href="https://www.jamb.gov.ng" target="_blank" rel="noopener">
+          <div class="dt">JAMB Official Website</div>
+          <div class="dd">Policy meetings, IBASS, CAPS, brochures</div>
+        </a>
+        <a class="doclink" href="https://ibass.jamb.gov.ng" target="_blank" rel="noopener">
+          <div class="dt">JAMB IBASS</div>
+          <div class="dd">Integrated Brochure & Syllabus System</div>
+        </a>
+        <a class="doclink" href="https://myschool.ng" target="_blank" rel="noopener">
+          <div class="dt">Myschool.ng</div>
+          <div class="dd">Nigeria's largest student platform — CBT, past questions, admission news</div>
+        </a>
+        <a class="doclink" href="https://www.nuc.gov.ng" target="_blank" rel="noopener">
+          <div class="dt">National Universities Commission</div>
+          <div class="dd">Accredited programmes, university list</div>
+        </a>
+        <a class="doclink" href="https://www.education.gov.ng" target="_blank" rel="noopener">
+          <div class="dt">Federal Ministry of Education</div>
+          <div class="dd">Policy documents, ELDS list</div>
+        </a>
+      </div>
+
+      <h4>Key documents reviewed</h4>
+      <ul>
+        <li><strong>JAMB 2026 Policy Meeting Communiqué</strong> — Minimum scores (150/100), age floor (16), CAPS rules.</li>
+        <li><strong>WAEC WASSCE Grading Scheme</strong> — A1 (75–100%) through F9 (0–39%).</li>
+        <li><strong>JAMB IBASS Brochure (2026/2027)</strong> — Course requirements, UTME subject combinations.</li>
+        <li><strong>NUC List of Accredited Programmes</strong> — Verification of active courses per university.</li>
+        <li><strong>Multiple University Post-UTME Guidelines (2024–2026)</strong> — UNILAG, UI, OAU, UNIBEN, ABU, UNN, LASU, FUTA, etc.</li>
+        <li><strong>Myschool.ng Historical Cut-off Compilations</strong> — Crowdsourced cut-off data for trend analysis.</li>
+        <li><strong>Nigeria Data Protection Regulation (NDPR) 2019</strong> — Compliance baseline for user data.</li>
+      </ul>
+
+      <h4>Methodology note</h4>
+      <p class="note">
+        This research combined <strong>direct measurement</strong> (requesting live WAEC/JAMB/Myschool pages and reading responses),
+        <strong>primary platform documentation</strong> (official PDFs, policy communiqués), and <strong>industry surveys</strong>
+        (Myschool traffic patterns, student forum discussions on Nairaland, Twitter/X, WhatsApp groups).
+        Where sources disagree (e.g., historical cut-offs), the range is reported and flagged.
+        <span class="src">All facts current as of November 2026.</span>
+      </p>
+    </section>
+
+  </main>
+
+</div>
+</div>
+
+<footer class="footer">
+  <div class="fgrid">
+    <div class="fnote">
+      <strong>Nigerian Career Compass — Research & Strategy</strong><br>
+      Prepared by Dammie Optimus Solutions · November 2026
+    </div>
+    <div class="fnote">
+      Built with the <a href="brand-guidelines.html">Dammie Optimus Design System</a> ·
+      <a href="https://github.com/dammieoptimus" target="_blank" rel="noopener">GitHub</a> ·
+      <a href="https://dammieoptimus.com" target="_blank" rel="noopener">Website</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Theme toggle (matches docs.css pattern)
+  const themeBtn = document.getElementById('themeBtn');
+  const themeIcon = document.getElementById('themeIcon');
+  const themeLabel = document.getElementById('themeLabel');
+  const html = document.documentElement;
+  
+  function setTheme(theme) {
+    html.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+    themeIcon.textContent = theme === 'dark' ? '◐' : '☀';
+    themeLabel.textContent = theme === 'dark' ? 'Light' : 'Dark';
+  }
+  
+  const saved = localStorage.getItem('theme') || 'dark';
+  setTheme(saved);
+  
+  themeBtn.addEventListener('click', () => {
+    const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    setTheme(next);
+  });
+  
+  // Reading progress bar
+  const progress = document.getElementById('progress');
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progressPct = (scrollTop / docHeight) * 100;
+    progress.style.width = progressPct + '%';
+  });
+  
+  // Print / Save as PDF
+  document.getElementById('printBtn').addEventListener('click', () => window.print());
+  
+  // TOC active link highlighting
+  const tocLinks = document.querySelectorAll('.toc a[href^="#"]');
+  const sections = Array.from(tocLinks).map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        tocLinks.forEach(link => {
+          link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+        });
+      }
+    });
+  }, { rootMargin: '-100px 0px -60% 0px' });
+  
+  sections.forEach(section => observer.observe(section));
+  
+  // Copy code blocks
+  document.querySelectorAll('.copy').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const pre = btn.closest('.codewrap').querySelector('pre');
+      await navigator.clipboard.writeText(pre.textContent);
+      btn.classList.add('done');
+      btn.textContent = 'Copied!';
+      setTimeout(() => { btn.classList.remove('done'); btn.textContent = 'Copy'; }, 2000);
+    });
+  });
+</script>
+</body>
+</html>
